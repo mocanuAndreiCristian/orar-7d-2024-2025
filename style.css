@@ -52,11 +52,11 @@ td {
 }
 
 .blue {
-    color: #1d85ee;
+    color: #0170e0;
 }
 
 .red {
-    color: #ff0000;
+    color: #dc0000;
 }
 
 @media (max-width: 925px) {
