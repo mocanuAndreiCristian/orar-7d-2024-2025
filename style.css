@@ -31,12 +31,14 @@ td {
     padding: 15px;
 }
 
-#dayInfo {
+#dayInfo,
+#hourInfo {
     text-align: center;
     font-size: 2em;
 }
 
-#dayOfTheWeek {
+#dayOfTheWeek,
+#hourOfTheDay {
     font-weight: bold;
 }
 
