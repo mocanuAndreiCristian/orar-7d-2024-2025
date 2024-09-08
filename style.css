@@ -42,6 +42,23 @@ td {
     font-weight: bold;
 }
 
+.instructions {
+    position: absolute;
+    bottom: 0;
+}
+
+#up {
+    bottom: 1.5em;
+}
+
+.blue {
+    color: #1d85ee;
+}
+
+.red {
+    color: #ff0000;
+}
+
 @media (max-width: 925px) {
     table {
         font-size: 1em;
