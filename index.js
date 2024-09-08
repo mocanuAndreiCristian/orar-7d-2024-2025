@@ -4,15 +4,25 @@ const wednesday = document.getElementById("Wednesday");
 const thursday = document.getElementById("Thursday");
 const friday = document.getElementById("Friday");
 
+const h12 = document.getElementById("12");
+const h13 = document.getElementById("13");
+const h14 = document.getElementById("14");
+const h15 = document.getElementById("15");
+const h16 = document.getElementById("16");
+const h17 = document.getElementById("17");
+const h18 = document.getElementById("18");
+
 const dayOfTheWeek = document.getElementById("dayOfTheWeek");
+const hourOfTheDay = document.getElementById("hourOfTheDay");
+
+const date = new Date();
+
+//decide the day
 
 const weekday = ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"];
 
-const d = new Date();
-let dayCode = d.getDay();
+let dayCode = date.getDay();
 let day = weekday[dayCode];
-
-//decide the day
 
 dayOfTheWeek.textContent = day;
 
@@ -41,4 +51,38 @@ if (dayCode == 0 || dayCode == 6) {
             break;
     }
     dayOfTheWeek.style.color = "#1d85ee";
+}
+
+//decide the time
+
+let hourCode = date.getHours();
+
+hourOfTheDay.textContent = hourCode;
+if (hourCode < 12 || hourCode > 18) {
+    hourOfTheDay.style.color = "#ff0000";
+} else if (hourCode >= 12 && hourCode <= 18) {
+    hourOfTheDay.style.color = "#1d85ee";
+}
+switch (hourCode) {
+    case 12:
+        h12.style.backgroundColor = "#499ff6";
+        break;
+    case 13:
+        h13.style.backgroundColor = "#499ff6";
+        break;
+    case 14:
+        h14.style.backgroundColor = "#499ff6";
+        break;
+    case 15:
+        h15.style.backgroundColor = "#499ff6";
+        break;
+    case 16:
+        h16.style.backgroundColor = "#499ff6";
+        break;
+    case 17:
+        h17.style.backgroundColor = "#499ff6";
+        break;
+    case 18:
+        h18.style.backgroundColor = "#499ff6";
+        break;
 }
