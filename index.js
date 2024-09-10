@@ -55,35 +55,45 @@ switch (dayCode) {
 
 //decide the time
 
-let hourCode = date.getHours();
+function updateTime() {
+    const date = new Date();
 
-hourOfTheDay.textContent = hourCode;
+    let hourCode = date.getHours();
+    let minuteCode = date.getMinutes();
 
-if (hourCode < 12 || hourCode > 18) {
-    hourOfTheDay.style.color = "#ff0000";
-} else if (hourCode >= 12 && hourCode <= 18) {
-    hourOfTheDay.style.color = "#1d85ee";
+    minuteCode = minuteCode < 10 ? "0" + minuteCode : minuteCode;
+
+    hourOfTheDay.textContent = `${hourCode}:${minuteCode}`;
+
+    if (hourCode < 12 || hourCode > 18) {
+        hourOfTheDay.style.color = "#ff0000";
+    } else if (hourCode >= 12 && hourCode <= 18) {
+        hourOfTheDay.style.color = "#1d85ee";
+    }
+    switch (hourCode) {
+        case 12:
+            h12.style.backgroundColor = "#499ff6";
+            break;
+        case 13:
+            h13.style.backgroundColor = "#499ff6";
+            break;
+        case 14:
+            h14.style.backgroundColor = "#499ff6";
+            break;
+        case 15:
+            h15.style.backgroundColor = "#499ff6";
+            break;
+        case 16:
+            h16.style.backgroundColor = "#499ff6";
+            break;
+        case 17:
+            h17.style.backgroundColor = "#499ff6";
+            break;
+        case 18:
+            h18.style.backgroundColor = "#499ff6";
+            break;
+    }
 }
-switch (hourCode) {
-    case 12:
-        h12.style.backgroundColor = "#499ff6";
-        break;
-    case 13:
-        h13.style.backgroundColor = "#499ff6";
-        break;
-    case 14:
-        h14.style.backgroundColor = "#499ff6";
-        break;
-    case 15:
-        h15.style.backgroundColor = "#499ff6";
-        break;
-    case 16:
-        h16.style.backgroundColor = "#499ff6";
-        break;
-    case 17:
-        h17.style.backgroundColor = "#499ff6";
-        break;
-    case 18:
-        h18.style.backgroundColor = "#499ff6";
-        break;
-}
+
+updateTime();
+setInterval(updateTime, 5000);
