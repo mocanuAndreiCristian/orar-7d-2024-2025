@@ -29,28 +29,28 @@ dayOfTheWeek.textContent = day;
 if (dayCode == 0 || dayCode == 6) {
     dayOfTheWeek.style.color = "#ff0000";
 } else if (dayCode >= 1 && dayCode <= 5) {
-    switch (dayCode) {
-        case 1:
-            monday.style.backgroundColor = "#499ff6";
-            break;
-
-        case 2:
-            tuesday.style.backgroundColor = "#499ff6";
-            break;
-
-        case 3:
-            wednesday.style.backgroundColor = "#499ff6";
-            break;
-
-        case 4:
-            thursday.style.backgroundColor = "#499ff6";
-            break;
-
-        case 5:
-            friday.style.backgroundColor = "#499ff6";
-            break;
-    }
     dayOfTheWeek.style.color = "#1d85ee";
+}
+switch (dayCode) {
+    case 1:
+        monday.style.backgroundColor = "#499ff6";
+        break;
+
+    case 2:
+        tuesday.style.backgroundColor = "#499ff6";
+        break;
+
+    case 3:
+        wednesday.style.backgroundColor = "#499ff6";
+        break;
+
+    case 4:
+        thursday.style.backgroundColor = "#499ff6";
+        break;
+
+    case 5:
+        friday.style.backgroundColor = "#499ff6";
+        break;
 }
 
 //decide the time
@@ -58,6 +58,7 @@ if (dayCode == 0 || dayCode == 6) {
 let hourCode = date.getHours();
 
 hourOfTheDay.textContent = hourCode;
+
 if (hourCode < 12 || hourCode > 18) {
     hourOfTheDay.style.color = "#ff0000";
 } else if (hourCode >= 12 && hourCode <= 18) {
