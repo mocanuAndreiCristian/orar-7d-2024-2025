@@ -72,24 +72,31 @@ function updateTime() {
     }
     switch (hourCode) {
         case 12:
+            h18.style.backgroundColor = "#ffffff";
             h12.style.backgroundColor = "#499ff6";
             break;
         case 13:
+            h12.style.backgroundColor = "#ffffff";
             h13.style.backgroundColor = "#499ff6";
             break;
         case 14:
+            h13.style.backgroundColor = "#ffffff";
             h14.style.backgroundColor = "#499ff6";
             break;
         case 15:
+            h14.style.backgroundColor = "#ffffff";
             h15.style.backgroundColor = "#499ff6";
             break;
         case 16:
+            h15.style.backgroundColor = "#ffffff";
             h16.style.backgroundColor = "#499ff6";
             break;
         case 17:
+            h16.style.backgroundColor = "#ffffff";
             h17.style.backgroundColor = "#499ff6";
             break;
         case 18:
+            h17.style.backgroundColor = "#ffffff";
             h18.style.backgroundColor = "#499ff6";
             break;
     }
