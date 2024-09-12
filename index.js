@@ -37,19 +37,26 @@ switch (dayCode) {
         break;
 
     case 2:
+        monday.style.backgroundColor = "#ffffff";
         tuesday.style.backgroundColor = "#499ff6";
         break;
 
     case 3:
+        tuesday.style.backgroundColor = "#ffffff";
         wednesday.style.backgroundColor = "#499ff6";
         break;
 
     case 4:
+        wednesday.style.backgroundColor = "#ffffff";
         thursday.style.backgroundColor = "#499ff6";
         break;
 
     case 5:
+        thursday.style.backgroundColor = "#ffffff";
         friday.style.backgroundColor = "#499ff6";
+        break;
+    case 6:
+        friday.style.backgroundColor = "#ffffff";
         break;
 }
 
