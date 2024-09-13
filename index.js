@@ -15,6 +15,8 @@ const h18 = document.getElementById("18");
 const dayOfTheWeek = document.getElementById("dayOfTheWeek");
 const hourOfTheDay = document.getElementById("hourOfTheDay");
 
+let subject = document.getElementsByClassName("subject");
+
 const date = new Date();
 
 //decide the day
@@ -114,3 +116,22 @@ function updateTime() {
 
 updateTime();
 setInterval(updateTime, 5000);
+
+//highlight subjects
+
+Array.from(subject).forEach(function (subject) {
+    subject.addEventListener("click", function () {
+        markSubject(subject);
+    });
+});
+
+function markSubject(el) {
+    let marked = el.getAttribute("data-marked") === "true";
+    if (!marked) {
+        el.innerHTML = "<mark>" + el.innerHTML + "</mark>";
+        el.setAttribute("data-marked", "true");
+    } else {
+        el.innerHTML = el.innerHTML.replace("<mark>", "").replace("</mark>", "");
+        el.setAttribute("data-marked", "false");
+    }
+}
