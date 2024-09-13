@@ -106,6 +106,9 @@ function updateTime() {
             h17.style.backgroundColor = "#ffffff";
             h18.style.backgroundColor = "#499ff6";
             break;
+        case 19:
+            h18.style.backgroundColor = "#ffffff";
+            break;
     }
 }
 
