@@ -4,6 +4,11 @@ body {
         Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+*::selection {
+    background-color: #121212;
+    color: #ffffff;
+}
+
 h1 {
     text-align: center;
 }
@@ -31,10 +36,18 @@ td {
     padding: 15px;
 }
 
+.subject:hover {
+    cursor: pointer;
+}
+
 #dayInfo,
 #hourInfo {
     text-align: center;
     font-size: 2em;
+}
+
+#hourInfo {
+    margin-bottom: 2em;
 }
 
 #dayOfTheWeek,
@@ -48,7 +61,11 @@ td {
 }
 
 #up {
-    bottom: 1.5em;
+    bottom: 2em;
+}
+
+#up2 {
+    bottom: 4em;
 }
 
 .blue {
@@ -58,6 +75,8 @@ td {
 .red {
     color: #dc0000;
 }
+
+/*For Width*/
 
 @media (max-width: 925px) {
     table {
@@ -90,5 +109,13 @@ td {
 @media (max-width: 450px) {
     body {
         font-size: 0.5em;
+    }
+}
+
+/*For Height*/
+
+@media (max-height: 870px) {
+    .instructions {
+        position: initial;
     }
 }
