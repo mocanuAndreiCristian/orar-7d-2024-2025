@@ -15,7 +15,7 @@ const h18 = document.getElementById("18");
 const dayOfTheWeek = document.getElementById("dayOfTheWeek");
 const hourOfTheDay = document.getElementById("hourOfTheDay");
 
-let subject = document.getElementsByClassName("subject");
+const subject = document.getElementsByClassName("subject");
 
 const date = new Date();
 
