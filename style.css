@@ -9,8 +9,21 @@ body {
     color: #ffffff;
 }
 
+@keyframes onLoad {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 h1 {
     text-align: center;
+    animation: forwards 1s onLoad;
 }
 
 table,
@@ -20,6 +33,9 @@ td {
 }
 
 table {
+    opacity: 0;
+    animation: forwards 1s onLoad;
+    animation-delay: 0.5s;
     max-width: 95vw;
     width: max-content;
     margin-inline: auto;
@@ -42,6 +58,9 @@ td {
 
 #dayInfo,
 #hourInfo {
+    opacity: 0;
+    animation: forwards 1s onLoad;
+    animation-delay: 1s;
     text-align: center;
     font-size: 2em;
 }
@@ -56,6 +75,9 @@ td {
 }
 
 .instructions {
+    opacity: 0;
+    animation: forwards 1s onLoad;
+    animation-delay: 1.5s;
     position: absolute;
     bottom: 0;
 }
