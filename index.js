@@ -81,7 +81,6 @@ function updateTime() {
     }
     switch (hourCode) {
         case 12:
-            h18.style.backgroundColor = "#ffffff";
             h12.style.backgroundColor = "#499ff6";
             break;
         case 13:
