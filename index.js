@@ -154,6 +154,108 @@ function updateTime() {
             h18.style.backgroundColor = "#ffffff";
             break;
     }
+
+    if (dayCode == 1 && hourCode == 12) {
+        d1h12.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 12) {
+        d2h12.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 12) {
+        d3h12.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 12) {
+        d4h12.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 12) {
+        d5h12.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 13) {
+        d1h12.style.backgroundColor = "#ffffff";
+        d1h13.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 13) {
+        d2h12.style.backgroundColor = "#ffffff";
+        d2h13.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 13) {
+        d3h12.style.backgroundColor = "#ffffff";
+        d3h13.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 13) {
+        d4h12.style.backgroundColor = "#ffffff";
+        d4h13.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 13) {
+        d5h12.style.backgroundColor = "#ffffff";
+        d5h13.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 14) {
+        d1h13.style.backgroundColor = "#ffffff";
+        d1h14.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 14) {
+        d2h13.style.backgroundColor = "#ffffff";
+        d2h14.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 14) {
+        d3h13.style.backgroundColor = "#ffffff";
+        d3h14.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 14) {
+        d4h13.style.backgroundColor = "#ffffff";
+        d4h14.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 14) {
+        d5h13.style.backgroundColor = "#ffffff";
+        d5h14.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 15) {
+        d1h14.style.backgroundColor = "#ffffff";
+        d1h15.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 15) {
+        d2h14.style.backgroundColor = "#ffffff";
+        d2h15.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 15) {
+        d3h14.style.backgroundColor = "#ffffff";
+        d3h15.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 15) {
+        d4h14.style.backgroundColor = "#ffffff";
+        d4h15.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 15) {
+        d5h14.style.backgroundColor = "#ffffff";
+        d5h15.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 16) {
+        d1h15.style.backgroundColor = "#ffffff";
+        d1h16.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 16) {
+        d2h15.style.backgroundColor = "#ffffff";
+        d2h16.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 16) {
+        d3h15.style.backgroundColor = "#ffffff";
+        d3h16.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 16) {
+        d4h15.style.backgroundColor = "#ffffff";
+        d4h16.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 16) {
+        d5h15.style.backgroundColor = "#ffffff";
+        d5h16.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 17) {
+        d1h16.style.backgroundColor = "#ffffff";
+        d1h17.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 17) {
+        d2h16.style.backgroundColor = "#ffffff";
+        d2h17.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 17) {
+        d3h16.style.backgroundColor = "#ffffff";
+        d3h17.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 17) {
+        d4h16.style.backgroundColor = "#ffffff";
+        d4h17.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 17) {
+        d5h16.style.backgroundColor = "#ffffff";
+        d5h17.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 1 && hourCode == 18) {
+        d1h17.style.backgroundColor = "#ffffff";
+        d1h18.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 2 && hourCode == 18) {
+        d2h17.style.backgroundColor = "#ffffff";
+        d2h18.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 3 && hourCode == 18) {
+        d3h17.style.backgroundColor = "#ffffff";
+        d3h18.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 4 && hourCode == 18) {
+        d4h17.style.backgroundColor = "#ffffff";
+        d4h18.style.backgroundColor = "#499ff6";
+    } else if (dayCode == 5 && hourCode == 18) {
+        d5h17.style.backgroundColor = "#ffffff";
+        d5h18.style.backgroundColor = "#499ff6";
+}
 }
 
 updateTime();
@@ -177,28 +279,3 @@ function markSubject(el) {
         el.setAttribute("data-marked", "false");
     }
 }
-
-//decide the exact course
-
-const days = {
-    1: { 12: d1h12, 13: d1h13, 14: d1h14, 15: d1h15, 16: d1h16, 17: d1h17, 18: d1h18 },
-    2: { 12: d2h12, 13: d2h13, 14: d2h14, 15: d2h15, 16: d2h16, 17: d2h17, 18: d2h18 },
-    3: { 12: d3h12, 13: d3h13, 14: d3h14, 15: d3h15, 16: d3h16, 17: d3h17, 18: d3h18 },
-    4: { 12: d4h12, 13: d4h13, 14: d4h14, 15: d4h15, 16: d4h16, 17: d4h17, 18: d4h18 },
-    5: { 12: d5h12, 13: d5h13, 14: d5h14, 15: d5h15, 16: d5h16, 17: d5h17, 18: d5h18 },
-};
-
-function resetDay(day) {
-    for (let hour in days[day]) {
-        days[day][hour].style.backgroundColor = "#ffffff";
-    }
-}
-
-function highlightDayHour(dayCode, hourCode) {
-    resetDay(dayCode);
-    if (days[dayCode] && days[dayCode][hourCode]) {
-        days[dayCode][hourCode].style.backgroundColor = "#499ff6";
-    }
-}
-
-highlightDayHour(dayCode, hourCode);
