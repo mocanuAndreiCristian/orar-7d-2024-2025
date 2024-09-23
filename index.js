@@ -258,7 +258,7 @@ function updateTime() {
 }
 
 updateTime();
-setInterval(updateTime, 5000);
+setInterval(updateTime, 10000);
 
 //highlight subjects
 
