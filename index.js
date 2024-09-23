@@ -106,11 +106,10 @@ switch (dayCode) {
 
 //decide the time
 
-let hourCode = date.getHours();
-
 function updateTime() {
     const date = new Date();
 
+    let hourCode = date.getHours();
     let minuteCode = date.getMinutes();
 
     minuteCode = minuteCode < 10 ? "0" + minuteCode : minuteCode;
@@ -255,7 +254,7 @@ function updateTime() {
     } else if (dayCode == 5 && hourCode == 18) {
         d5h17.style.backgroundColor = "#ffffff";
         d5h18.style.backgroundColor = "#499ff6";
-}
+    }
 }
 
 updateTime();
