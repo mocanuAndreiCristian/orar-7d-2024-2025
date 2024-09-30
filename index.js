@@ -1,3 +1,5 @@
+let blueBoxColoring = "#2994ff";
+
 const monday = document.getElementById("Monday");
 const tuesday = document.getElementById("Tuesday");
 const wednesday = document.getElementById("Wednesday");
@@ -77,27 +79,27 @@ if (dayCode == 0 || dayCode == 6) {
 }
 switch (dayCode) {
     case 1:
-        monday.style.backgroundColor = "#499ff6";
+        monday.style.backgroundColor = blueBoxColoring;
         break;
 
     case 2:
         monday.style.backgroundColor = "#ffffff";
-        tuesday.style.backgroundColor = "#499ff6";
+        tuesday.style.backgroundColor = blueBoxColoring;
         break;
 
     case 3:
         tuesday.style.backgroundColor = "#ffffff";
-        wednesday.style.backgroundColor = "#499ff6";
+        wednesday.style.backgroundColor = blueBoxColoring;
         break;
 
     case 4:
         wednesday.style.backgroundColor = "#ffffff";
-        thursday.style.backgroundColor = "#499ff6";
+        thursday.style.backgroundColor = blueBoxColoring;
         break;
 
     case 5:
         thursday.style.backgroundColor = "#ffffff";
-        friday.style.backgroundColor = "#499ff6";
+        friday.style.backgroundColor = blueBoxColoring;
         break;
     case 6:
         friday.style.backgroundColor = "#ffffff";
@@ -123,31 +125,31 @@ function updateTime() {
     }
     switch (hourCode) {
         case 12:
-            h12.style.backgroundColor = "#499ff6";
+            h12.style.backgroundColor = blueBoxColoring;
             break;
         case 13:
             h12.style.backgroundColor = "#ffffff";
-            h13.style.backgroundColor = "#499ff6";
+            h13.style.backgroundColor = blueBoxColoring;
             break;
         case 14:
             h13.style.backgroundColor = "#ffffff";
-            h14.style.backgroundColor = "#499ff6";
+            h14.style.backgroundColor = blueBoxColoring;
             break;
         case 15:
             h14.style.backgroundColor = "#ffffff";
-            h15.style.backgroundColor = "#499ff6";
+            h15.style.backgroundColor = blueBoxColoring;
             break;
         case 16:
             h15.style.backgroundColor = "#ffffff";
-            h16.style.backgroundColor = "#499ff6";
+            h16.style.backgroundColor = blueBoxColoring;
             break;
         case 17:
             h16.style.backgroundColor = "#ffffff";
-            h17.style.backgroundColor = "#499ff6";
+            h17.style.backgroundColor = blueBoxColoring;
             break;
         case 18:
             h17.style.backgroundColor = "#ffffff";
-            h18.style.backgroundColor = "#499ff6";
+            h18.style.backgroundColor = blueBoxColoring;
             break;
         case 19:
             h18.style.backgroundColor = "#ffffff";
@@ -155,105 +157,105 @@ function updateTime() {
     }
 
     if (dayCode == 1 && hourCode == 12) {
-        d1h12.style.backgroundColor = "#499ff6";
+        d1h12.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 12) {
-        d2h12.style.backgroundColor = "#499ff6";
+        d2h12.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 12) {
-        d3h12.style.backgroundColor = "#499ff6";
+        d3h12.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 12) {
-        d4h12.style.backgroundColor = "#499ff6";
+        d4h12.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 12) {
-        d5h12.style.backgroundColor = "#499ff6";
+        d5h12.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 13) {
         d1h12.style.backgroundColor = "#ffffff";
-        d1h13.style.backgroundColor = "#499ff6";
+        d1h13.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 13) {
         d2h12.style.backgroundColor = "#ffffff";
-        d2h13.style.backgroundColor = "#499ff6";
+        d2h13.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 13) {
         d3h12.style.backgroundColor = "#ffffff";
-        d3h13.style.backgroundColor = "#499ff6";
+        d3h13.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 13) {
         d4h12.style.backgroundColor = "#ffffff";
-        d4h13.style.backgroundColor = "#499ff6";
+        d4h13.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 13) {
         d5h12.style.backgroundColor = "#ffffff";
-        d5h13.style.backgroundColor = "#499ff6";
+        d5h13.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 14) {
         d1h13.style.backgroundColor = "#ffffff";
-        d1h14.style.backgroundColor = "#499ff6";
+        d1h14.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 14) {
         d2h13.style.backgroundColor = "#ffffff";
-        d2h14.style.backgroundColor = "#499ff6";
+        d2h14.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 14) {
         d3h13.style.backgroundColor = "#ffffff";
-        d3h14.style.backgroundColor = "#499ff6";
+        d3h14.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 14) {
         d4h13.style.backgroundColor = "#ffffff";
-        d4h14.style.backgroundColor = "#499ff6";
+        d4h14.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 14) {
         d5h13.style.backgroundColor = "#ffffff";
-        d5h14.style.backgroundColor = "#499ff6";
+        d5h14.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 15) {
         d1h14.style.backgroundColor = "#ffffff";
-        d1h15.style.backgroundColor = "#499ff6";
+        d1h15.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 15) {
         d2h14.style.backgroundColor = "#ffffff";
-        d2h15.style.backgroundColor = "#499ff6";
+        d2h15.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 15) {
         d3h14.style.backgroundColor = "#ffffff";
-        d3h15.style.backgroundColor = "#499ff6";
+        d3h15.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 15) {
         d4h14.style.backgroundColor = "#ffffff";
-        d4h15.style.backgroundColor = "#499ff6";
+        d4h15.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 15) {
         d5h14.style.backgroundColor = "#ffffff";
-        d5h15.style.backgroundColor = "#499ff6";
+        d5h15.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 16) {
         d1h15.style.backgroundColor = "#ffffff";
-        d1h16.style.backgroundColor = "#499ff6";
+        d1h16.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 16) {
         d2h15.style.backgroundColor = "#ffffff";
-        d2h16.style.backgroundColor = "#499ff6";
+        d2h16.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 16) {
         d3h15.style.backgroundColor = "#ffffff";
-        d3h16.style.backgroundColor = "#499ff6";
+        d3h16.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 16) {
         d4h15.style.backgroundColor = "#ffffff";
-        d4h16.style.backgroundColor = "#499ff6";
+        d4h16.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 16) {
         d5h15.style.backgroundColor = "#ffffff";
-        d5h16.style.backgroundColor = "#499ff6";
+        d5h16.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 17) {
         d1h16.style.backgroundColor = "#ffffff";
-        d1h17.style.backgroundColor = "#499ff6";
+        d1h17.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 17) {
         d2h16.style.backgroundColor = "#ffffff";
-        d2h17.style.backgroundColor = "#499ff6";
+        d2h17.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 17) {
         d3h16.style.backgroundColor = "#ffffff";
-        d3h17.style.backgroundColor = "#499ff6";
+        d3h17.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 17) {
         d4h16.style.backgroundColor = "#ffffff";
-        d4h17.style.backgroundColor = "#499ff6";
+        d4h17.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 17) {
         d5h16.style.backgroundColor = "#ffffff";
-        d5h17.style.backgroundColor = "#499ff6";
+        d5h17.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 1 && hourCode == 18) {
         d1h17.style.backgroundColor = "#ffffff";
-        d1h18.style.backgroundColor = "#499ff6";
+        d1h18.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 2 && hourCode == 18) {
         d2h17.style.backgroundColor = "#ffffff";
-        d2h18.style.backgroundColor = "#499ff6";
+        d2h18.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 3 && hourCode == 18) {
         d3h17.style.backgroundColor = "#ffffff";
-        d3h18.style.backgroundColor = "#499ff6";
+        d3h18.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 4 && hourCode == 18) {
         d4h17.style.backgroundColor = "#ffffff";
-        d4h18.style.backgroundColor = "#499ff6";
+        d4h18.style.backgroundColor = blueBoxColoring;
     } else if (dayCode == 5 && hourCode == 18) {
         d5h17.style.backgroundColor = "#ffffff";
-        d5h18.style.backgroundColor = "#499ff6";
+        d5h18.style.backgroundColor = blueBoxColoring;
     }
 }
 
@@ -276,5 +278,20 @@ function markSubject(el) {
     } else {
         el.innerHTML = el.innerHTML.replace("<mark>", "").replace("</mark>", "");
         el.setAttribute("data-marked", "false");
+    }
+}
+
+//decide color theme
+
+const switchTheme = document.getElementById("switchTheme");
+let currentTheme = 0;
+
+function changeTheme() {
+    if (currentTheme == 0) {
+        document.documentElement.style.setProperty("color-scheme", "dark");
+        currentTheme = 1;
+    } else if (currentTheme == 1) {
+        document.documentElement.style.setProperty("color-scheme", "light");
+        currentTheme = 0;
     }
 }
