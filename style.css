@@ -8,6 +8,10 @@ body {
     color-scheme: light;
 }
 
+mark {
+    border-radius: 5px;
+}
+
 @keyframes onLoad {
     from {
         opacity: 0;
@@ -22,8 +26,11 @@ body {
 
 #switchTheme {
     position: relative;
+    border: 1px solid #121212;
+    border-radius: 5px;
     width: 50px;
     height: 50px;
+    text-align: center;
     opacity: 0;
     animation: forwards 1s onLoad;
     animation-delay: 2.5s;
@@ -60,15 +67,15 @@ td {
 }
 
 table {
-    opacity: 0;
-    animation: forwards 1s onLoad;
-    animation-delay: 0.5s;
     max-width: 95vw;
     width: max-content;
     margin-inline: auto;
     text-align: center;
     font-size: 1.25em;
     border-collapse: collapse;
+    opacity: 0;
+    animation: forwards 1s onLoad;
+    animation-delay: 0.5s;
 }
 
 th {
@@ -83,8 +90,7 @@ td {
     cursor: pointer;
 }
 
-#dayInfo,
-#hourInfo {
+#hourOfTheDay {
     opacity: 0;
     animation: forwards 1s onLoad;
     animation-delay: 1s;
@@ -92,11 +98,10 @@ td {
     font-size: 2em;
 }
 
-#hourInfo {
+#hourOfTheDay {
     margin-bottom: 2em;
 }
 
-#dayOfTheWeek,
 #hourOfTheDay {
     font-weight: bold;
 }
@@ -118,11 +123,11 @@ td {
 }
 
 .blue {
-    color: #0170e0;
+    color: #2994ff;
 }
 
 .red {
-    color: #dc0000;
+    color: #ff4949;
 }
 
 /*For Width*/
