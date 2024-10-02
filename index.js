@@ -1,4 +1,4 @@
-const bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+const white = "#ffffff";
 const blue = "#2994ff";
 const red = "#ff4949";
 
@@ -77,26 +77,26 @@ switch (dayCode) {
         break;
 
     case 2:
-        monday.style.backgroundColor = bodyBgColor;
+        monday.style.backgroundColor = white;
         tuesday.style.backgroundColor = blue;
         break;
 
     case 3:
-        tuesday.style.backgroundColor = bodyBgColor;
+        tuesday.style.backgroundColor = white;
         wednesday.style.backgroundColor = blue;
         break;
 
     case 4:
-        wednesday.style.backgroundColor = bodyBgColor;
+        wednesday.style.backgroundColor = white;
         thursday.style.backgroundColor = blue;
         break;
 
     case 5:
-        thursday.style.backgroundColor = bodyBgColor;
+        thursday.style.backgroundColor = white;
         friday.style.backgroundColor = blue;
         break;
     case 6:
-        friday.style.backgroundColor = bodyBgColor;
+        friday.style.backgroundColor = white;
         break;
 }
 
@@ -122,31 +122,31 @@ function updateTime() {
             h12.style.backgroundColor = blue;
             break;
         case 13:
-            h12.style.backgroundColor = bodyBgColor;
+            h12.style.backgroundColor = white;
             h13.style.backgroundColor = blue;
             break;
         case 14:
-            h13.style.backgroundColor = bodyBgColor;
+            h13.style.backgroundColor = white;
             h14.style.backgroundColor = blue;
             break;
         case 15:
-            h14.style.backgroundColor = bodyBgColor;
+            h14.style.backgroundColor = white;
             h15.style.backgroundColor = blue;
             break;
         case 16:
-            h15.style.backgroundColor = bodyBgColor;
+            h15.style.backgroundColor = white;
             h16.style.backgroundColor = blue;
             break;
         case 17:
-            h16.style.backgroundColor = bodyBgColor;
+            h16.style.backgroundColor = white;
             h17.style.backgroundColor = blue;
             break;
         case 18:
-            h17.style.backgroundColor = bodyBgColor;
+            h17.style.backgroundColor = white;
             h18.style.backgroundColor = blue;
             break;
         case 19:
-            h18.style.backgroundColor = bodyBgColor;
+            h18.style.backgroundColor = white;
             break;
     }
 
@@ -161,94 +161,94 @@ function updateTime() {
     } else if (dayCode == 5 && hourCode == 12) {
         d5h12.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 13) {
-        d1h12.style.backgroundColor = bodyBgColor;
+        d1h12.style.backgroundColor = white;
         d1h13.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 13) {
-        d2h12.style.backgroundColor = bodyBgColor;
+        d2h12.style.backgroundColor = white;
         d2h13.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 13) {
-        d3h12.style.backgroundColor = bodyBgColor;
+        d3h12.style.backgroundColor = white;
         d3h13.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 13) {
-        d4h12.style.backgroundColor = bodyBgColor;
+        d4h12.style.backgroundColor = white;
         d4h13.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 13) {
-        d5h12.style.backgroundColor = bodyBgColor;
+        d5h12.style.backgroundColor = white;
         d5h13.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 14) {
-        d1h13.style.backgroundColor = bodyBgColor;
+        d1h13.style.backgroundColor = white;
         d1h14.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 14) {
-        d2h13.style.backgroundColor = bodyBgColor;
+        d2h13.style.backgroundColor = white;
         d2h14.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 14) {
-        d3h13.style.backgroundColor = bodyBgColor;
+        d3h13.style.backgroundColor = white;
         d3h14.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 14) {
-        d4h13.style.backgroundColor = bodyBgColor;
+        d4h13.style.backgroundColor = white;
         d4h14.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 14) {
-        d5h13.style.backgroundColor = bodyBgColor;
+        d5h13.style.backgroundColor = white;
         d5h14.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 15) {
-        d1h14.style.backgroundColor = bodyBgColor;
+        d1h14.style.backgroundColor = white;
         d1h15.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 15) {
-        d2h14.style.backgroundColor = bodyBgColor;
+        d2h14.style.backgroundColor = white;
         d2h15.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 15) {
-        d3h14.style.backgroundColor = bodyBgColor;
+        d3h14.style.backgroundColor = white;
         d3h15.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 15) {
-        d4h14.style.backgroundColor = bodyBgColor;
+        d4h14.style.backgroundColor = white;
         d4h15.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 15) {
-        d5h14.style.backgroundColor = bodyBgColor;
+        d5h14.style.backgroundColor = white;
         d5h15.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 16) {
-        d1h15.style.backgroundColor = bodyBgColor;
+        d1h15.style.backgroundColor = white;
         d1h16.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 16) {
-        d2h15.style.backgroundColor = bodyBgColor;
+        d2h15.style.backgroundColor = white;
         d2h16.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 16) {
-        d3h15.style.backgroundColor = bodyBgColor;
+        d3h15.style.backgroundColor = white;
         d3h16.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 16) {
-        d4h15.style.backgroundColor = bodyBgColor;
+        d4h15.style.backgroundColor = white;
         d4h16.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 16) {
-        d5h15.style.backgroundColor = bodyBgColor;
+        d5h15.style.backgroundColor = white;
         d5h16.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 17) {
-        d1h16.style.backgroundColor = bodyBgColor;
+        d1h16.style.backgroundColor = white;
         d1h17.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 17) {
-        d2h16.style.backgroundColor = bodyBgColor;
+        d2h16.style.backgroundColor = white;
         d2h17.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 17) {
-        d3h16.style.backgroundColor = bodyBgColor;
+        d3h16.style.backgroundColor = white;
         d3h17.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 17) {
-        d4h16.style.backgroundColor = bodyBgColor;
+        d4h16.style.backgroundColor = white;
         d4h17.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 17) {
-        d5h16.style.backgroundColor = bodyBgColor;
+        d5h16.style.backgroundColor = white;
         d5h17.style.backgroundColor = blue;
     } else if (dayCode == 1 && hourCode == 18) {
-        d1h17.style.backgroundColor = bodyBgColor;
+        d1h17.style.backgroundColor = white;
         d1h18.style.backgroundColor = blue;
     } else if (dayCode == 2 && hourCode == 18) {
-        d2h17.style.backgroundColor = bodyBgColor;
+        d2h17.style.backgroundColor = white;
         d2h18.style.backgroundColor = blue;
     } else if (dayCode == 3 && hourCode == 18) {
-        d3h17.style.backgroundColor = bodyBgColor;
+        d3h17.style.backgroundColor = white;
         d3h18.style.backgroundColor = blue;
     } else if (dayCode == 4 && hourCode == 18) {
-        d4h17.style.backgroundColor = bodyBgColor;
+        d4h17.style.backgroundColor = white;
         d4h18.style.backgroundColor = blue;
     } else if (dayCode == 5 && hourCode == 18) {
-        d5h17.style.backgroundColor = bodyBgColor;
+        d5h17.style.backgroundColor = white;
         d5h18.style.backgroundColor = blue;
     }
 }

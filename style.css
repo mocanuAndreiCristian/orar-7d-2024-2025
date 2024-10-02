@@ -63,6 +63,8 @@ h1 {
 table,
 th,
 td {
+    background-color: #ffffff;
+    color: #000000;
     border: 1px solid;
 }
 
@@ -72,6 +74,7 @@ table {
     margin-inline: auto;
     text-align: center;
     font-size: 1.25em;
+    border-radius: 10px;
     border-collapse: collapse;
     opacity: 0;
     animation: forwards 1s onLoad;
