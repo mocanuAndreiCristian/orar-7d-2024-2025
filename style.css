@@ -69,6 +69,7 @@ td {
 }
 
 table {
+    z-index: -1;
     max-width: 95vw;
     width: max-content;
     margin-inline: auto;
@@ -79,6 +80,10 @@ table {
     opacity: 0;
     animation: forwards 1s onLoad;
     animation-delay: 0.5s;
+
+    -webkit-box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
 }
 
 th {
@@ -153,6 +158,15 @@ td {
 
     td {
         padding: 5px;
+    }
+
+    #switchTheme {
+        width: 30px;
+        height: 30px;
+    }
+
+    #sunImage {
+        font-size: 15px;
     }
 }
 
