@@ -112,8 +112,6 @@ td {
     opacity: 0;
     animation: forwards 1s onLoad;
     animation-delay: 1.5s;
-    position: absolute;
-    bottom: 0;
 }
 
 #up {
@@ -125,10 +123,12 @@ td {
 }
 
 .blue {
+    font-weight: bold;
     color: #2994ff;
 }
 
 .red {
+    font-weight: bold;
     color: #ff4949;
 }
 
@@ -180,11 +180,51 @@ td {
     color: #48b400;
 }
 
+.medium {
+    color: #f19400;
+}
+
 .hard {
     color: #ff0000;
 }
 
 /*For Width*/
+
+@media (max-width: 1650px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    #occouring-events {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        height: 50vh;
+        min-width: 100vw;
+        border-top: 1px solid;
+        border-left: 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    #occouring-events > h2 {
+        margin-top: calc(50vh / 2 - 2em);
+        margin-left: 1vw;
+    }
+
+    .events {
+        background-color: #ffffff;
+        color: #000000;
+        min-width: 20vw;
+        min-height: 7.5vw;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 5px 10px;
+        margin-inline: 2vw;
+        margin-top: 2vh;
+    }
+}
 
 @media (max-width: 925px) {
     table {
