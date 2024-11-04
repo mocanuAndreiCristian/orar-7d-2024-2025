@@ -102,9 +102,9 @@ table {
     animation: forwards 1s onLoad;
     animation-delay: 0.5s;
 
-    -webkit-box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
-    -moz-box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 0px 300px 30px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
+    -moz-box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
 }
 
 th {
@@ -190,6 +190,10 @@ td {
     padding: 5px 10px;
     margin-inline: auto;
     margin-bottom: 2vh;
+
+    -webkit-box-shadow: 0px 0px 75px 20px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: 0px 0px 75px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 75px 20px rgba(255, 255, 255, 0.2);
 }
 
 .events > p > span {
