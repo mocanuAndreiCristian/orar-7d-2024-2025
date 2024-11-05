@@ -34,7 +34,7 @@ mark {
     text-align: center;
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 2.5s;
+    animation-delay: 2s;
 }
 
 #switchTheme:hover {
@@ -65,7 +65,7 @@ mark {
     text-align: center;
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 2.5s;
+    animation-delay: 2s;
 }
 
 #manualList:hover {
@@ -108,7 +108,7 @@ table {
 }
 
 th {
-    padding-inline: 5px;
+    padding-inline: 10px;
 }
 
 td {
@@ -126,30 +126,6 @@ td {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-}
-
-.instructions {
-    opacity: 0;
-    animation: forwards 1s onLoad;
-    animation-delay: 1.5s;
-}
-
-#up {
-    bottom: 2em;
-}
-
-#up2 {
-    bottom: 4em;
-}
-
-.blue {
-    font-weight: bold;
-    color: #2994ff;
-}
-
-.red {
-    font-weight: bold;
-    color: #ff4949;
 }
 
 /* Occouring Events */
@@ -173,7 +149,7 @@ td {
     overflow-y: scroll;
     opacity: 0;
     animation: forwards 2s toOpaque;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
 }
 
 #occouring-events > h2 {
