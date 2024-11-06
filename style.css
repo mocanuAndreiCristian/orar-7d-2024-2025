@@ -95,7 +95,7 @@ table {
     width: max-content;
     margin-inline: auto;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.75em;
     border-radius: 10px;
     border-collapse: collapse;
     opacity: 0;
@@ -112,7 +112,7 @@ th {
 }
 
 td {
-    padding: 20px 25px;
+    padding: 20px;
 }
 
 .subject:hover {
