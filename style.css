@@ -284,8 +284,4 @@ td {
     body {
         overflow-y: scroll;
     }
-
-    .instructions {
-        position: initial;
-    }
 }
