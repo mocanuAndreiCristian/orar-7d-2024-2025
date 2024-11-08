@@ -28,7 +28,7 @@ mark {
 #switchTheme {
     position: relative;
     border: 1px solid #121212;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -43,7 +43,7 @@ mark {
 
 #sunImage {
     font-size: 30px;
-    animation: infinite 20s rotate;
+    animation: infinite 15s rotate;
     animation-timing-function: linear;
 }
 
@@ -59,7 +59,7 @@ mark {
 #manualList {
     position: relative;
     border: 1px solid #121212;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -95,7 +95,7 @@ table {
     width: max-content;
     margin-inline: auto;
     text-align: center;
-    font-size: 1.75em;
+    font-size: 2em;
     border-radius: 10px;
     border-collapse: collapse;
     opacity: 0;
@@ -124,7 +124,7 @@ td {
     animation: forwards 1s onLoad;
     animation-delay: 1s;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
 }
 
@@ -144,7 +144,7 @@ td {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 20vw;
+    width: 15vw;
     border-left: 1px solid;
     overflow-y: scroll;
     opacity: 0;
@@ -159,8 +159,8 @@ td {
 .events {
     background-color: #ffffff;
     color: #000000;
-    width: 15vw;
-    min-height: 7.5vw;
+    width: 10vw;
+    min-height: 5vw;
     border: 1px solid;
     border-radius: 20px;
     padding: 5px 10px;
