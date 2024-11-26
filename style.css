@@ -188,6 +188,11 @@ td {
     color: #ff0000;
 }
 
+.text-img {
+    height: 1.35em;
+    transform: translateY(0.25em);
+}
+
 /*For Width*/
 
 @media (max-width: 1650px) {
