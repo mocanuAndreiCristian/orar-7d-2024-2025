@@ -289,3 +289,80 @@ function changeTheme() {
         currentTheme = 0;
     }
 }
+
+// The weather part...
+
+// Coordinates for Bucharest
+const latitude = 44.4328;
+const longitude = 26.1043;
+
+// The URL to fetch weather data
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+} else {
+    console.log("Geolocația nu este suportată de browser.");
+}
+
+function success(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=sunrise,sunset&timezone=auto`;
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            const temperature = data.current_weather.temperature;
+            const weatherCode = data.current_weather.weathercode;
+            const sunrise = formatTime(data.daily.sunrise[0]);
+            const sunset = formatTime(data.daily.sunset[0]);
+            const weatherDescription = getWeatherDescription(weatherCode);
+
+            document.getElementById(
+                "weather"
+            ).innerHTML = `${temperature}°C&nbsp;&nbsp;&nbsp;${weatherDescription}<br>
+                Răsărit&nbsp;&nbsp;&nbsp;${sunrise}<br>
+                Apus&nbsp;&nbsp;&nbsp;${sunset}`;
+        })
+        .catch((error) => {
+            console.error("Eroare:", error);
+        });
+}
+
+function error() {
+    document.getElementById("weather").innerText = "";
+}
+
+function formatTime(isoString) {
+    return isoString.split("T")[1].slice(0, 5);
+}
+
+// Function to interpret Open-Meteo weather codes
+function getWeatherDescription(code) {
+    const weatherCodes = {
+        0: "Cer senin ☀️",
+        1: "Mai mult senin 🌤️",
+        2: "Parțial noros ⛅",
+        3: "Noros ☁️",
+        45: "Ceață 🌫️",
+        48: "Ceață cu chiciură ❄️🌫️",
+        51: "Burniță ușoară 🌧️",
+        53: "Burniță moderată 🌧️",
+        55: "Burniță densă 🌧️",
+        61: "Ploaie ușoară 🌦️",
+        63: "Ploaie moderată 🌧️",
+        65: "Ploaie abundentă 🌧️🌧️",
+        71: "Ninsoare ușoară 🌨️",
+        73: "Ninsoare moderată 🌨️",
+        75: "Ninsoare abundentă ❄️❄️",
+        95: "Furtună ⛈️",
+        96: "Furtună cu grindină ⛈️🌨️",
+    };
+    return weatherCodes[code] || "Ceruri misterioase 🤷‍♂️";
+}
+
+setInterval(() => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+}, 300000);

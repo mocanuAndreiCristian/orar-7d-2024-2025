@@ -34,7 +34,6 @@ mark {
     text-align: center;
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 2s;
 }
 
 #switchTheme:hover {
@@ -65,7 +64,6 @@ mark {
     text-align: center;
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 2s;
 }
 
 #manualList:hover {
@@ -77,8 +75,11 @@ mark {
 }
 
 h1 {
+    opacity: 0;
     text-align: center;
     animation: forwards 1s onLoad;
+    animation-delay: 0.5s;
+    margin-top: -15px;
 }
 
 table,
@@ -94,17 +95,18 @@ table {
     max-width: 95vw;
     width: max-content;
     margin-inline: auto;
+    margin-top: -10px;
     text-align: center;
     font-size: 2em;
     border-radius: 10px;
     border-collapse: collapse;
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 
-    -webkit-box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
-    -moz-box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
-    box-shadow: 0px 0px 150px 50px rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 16px 0px rgba(18, 18, 18, 0.75);
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(18, 18, 18, 0.75);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(18, 18, 18, 0.75);
 }
 
 th {
@@ -122,9 +124,19 @@ td {
 #hourOfTheDay {
     opacity: 0;
     animation: forwards 1s onLoad;
-    animation-delay: 1s;
+    animation-delay: 1.5s;
     text-align: center;
     font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: -0.5em;
+}
+
+#weather {
+    opacity: 0;
+    animation: forwards 1s onLoad;
+    animation-delay: 1.5s;
+    text-align: center;
+    font-size: 2em;
     font-weight: bold;
 }
 
