@@ -136,8 +136,7 @@ td {
     animation: forwards 1s onLoad;
     animation-delay: 1.5s;
     text-align: center;
-    font-size: 2em;
-    font-weight: bold;
+    font-size: 1.75em;
 }
 
 /* Occouring Events */
