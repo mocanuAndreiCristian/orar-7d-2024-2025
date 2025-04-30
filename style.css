@@ -226,6 +226,7 @@ mark {
     gap: 0.5rem;
     font-size: 1.25em;
     color: var(--text-color);
+    animation: fadeInUp 1.5s ease;
 }
 
 .color-picker input[type="color"] {
