@@ -372,7 +372,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 20rem;
     animation: fadeInUp 1.5s ease;
 }
 
