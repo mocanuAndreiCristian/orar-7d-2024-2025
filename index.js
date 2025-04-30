@@ -1,6 +1,6 @@
-const white = "#ffffff";
-const blue = "#2994ff";
-const red = "#ff4949";
+const themeToggle = document.getElementById("switchTheme");
+const themeIcon = document.getElementById("themeIcon");
+let isDarkTheme = false;
 
 const monday = document.getElementById("Monday");
 const tuesday = document.getElementById("Tuesday");
@@ -58,252 +58,111 @@ const d3h18 = document.getElementById("d3h18");
 const d4h18 = document.getElementById("d4h18");
 const d5h18 = document.getElementById("d5h18");
 
-const dayOfTheWeek = document.getElementById("dayOfTheWeek");
 const hourOfTheDay = document.getElementById("hourOfTheDay");
-
-const subject = document.getElementsByClassName("subject");
+const weatherDisplay = document.getElementById("weather");
 
 const date = new Date();
 
-//decide the day
+// Set current day highlight
+const dayOfWeek = date.getDay();
+const weekdays = [null, monday, tuesday, wednesday, thursday, friday];
 
-const weekday = ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"];
-
-let dayCode = date.getDay();
-
-switch (dayCode) {
-    case 1:
-        monday.style.backgroundColor = blue;
-        break;
-
-    case 2:
-        monday.style.backgroundColor = white;
-        tuesday.style.backgroundColor = blue;
-        break;
-
-    case 3:
-        tuesday.style.backgroundColor = white;
-        wednesday.style.backgroundColor = blue;
-        break;
-
-    case 4:
-        wednesday.style.backgroundColor = white;
-        thursday.style.backgroundColor = blue;
-        break;
-
-    case 5:
-        thursday.style.backgroundColor = white;
-        friday.style.backgroundColor = blue;
-        break;
-    case 6:
-        friday.style.backgroundColor = white;
-        break;
+if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+    weekdays[dayOfWeek].classList.add("current-day");
 }
 
-//decide the time
-
+// Update the time and highlight current hour/cell
 function updateTime() {
     const date = new Date();
+    const currentHour = date.getHours();
+    const currentMinutes = date.getMinutes();
+    const formattedMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
 
-    let hourCode = date.getHours();
-    let minuteCode = date.getMinutes();
+    hourOfTheDay.textContent = `${currentHour}:${formattedMinutes}`;
 
-    minuteCode = minuteCode < 10 ? "0" + minuteCode : minuteCode;
+    // Reset previous highlights
+    const allHourElements = [h12, h13, h14, h15, h16, h17, h18];
+    allHourElements.forEach((hour) => hour.classList.remove("current-hour"));
 
-    hourOfTheDay.textContent = `${hourCode}:${minuteCode}`;
+    // All cell elements
+    const allCells = document.querySelectorAll("td");
+    allCells.forEach((cell) => cell.classList.remove("current-cell"));
 
-    if (hourCode < 12 || hourCode > 18) {
-        hourOfTheDay.style.color = red;
-    } else if (hourCode >= 12 && hourCode <= 18) {
-        hourOfTheDay.style.color = blue;
-    }
-    switch (hourCode) {
-        case 12:
-            h12.style.backgroundColor = blue;
-            break;
-        case 13:
-            h12.style.backgroundColor = white;
-            h13.style.backgroundColor = blue;
-            break;
-        case 14:
-            h13.style.backgroundColor = white;
-            h14.style.backgroundColor = blue;
-            break;
-        case 15:
-            h14.style.backgroundColor = white;
-            h15.style.backgroundColor = blue;
-            break;
-        case 16:
-            h15.style.backgroundColor = white;
-            h16.style.backgroundColor = blue;
-            break;
-        case 17:
-            h16.style.backgroundColor = white;
-            h17.style.backgroundColor = blue;
-            break;
-        case 18:
-            h17.style.backgroundColor = white;
-            h18.style.backgroundColor = blue;
-            break;
-        case 19:
-            h18.style.backgroundColor = white;
-            break;
-    }
+    // Set hour highlight
+    if (currentHour >= 12 && currentHour <= 18) {
+        document.getElementById(currentHour.toString()).classList.add("current-hour");
 
-    if (dayCode == 1 && hourCode == 12) {
-        d1h12.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 12) {
-        d2h12.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 12) {
-        d3h12.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 12) {
-        d4h12.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 12) {
-        d5h12.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 13) {
-        d1h12.style.backgroundColor = white;
-        d1h13.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 13) {
-        d2h12.style.backgroundColor = white;
-        d2h13.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 13) {
-        d3h12.style.backgroundColor = white;
-        d3h13.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 13) {
-        d4h12.style.backgroundColor = white;
-        d4h13.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 13) {
-        d5h12.style.backgroundColor = white;
-        d5h13.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 14) {
-        d1h13.style.backgroundColor = white;
-        d1h14.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 14) {
-        d2h13.style.backgroundColor = white;
-        d2h14.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 14) {
-        d3h13.style.backgroundColor = white;
-        d3h14.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 14) {
-        d4h13.style.backgroundColor = white;
-        d4h14.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 14) {
-        d5h13.style.backgroundColor = white;
-        d5h14.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 15) {
-        d1h14.style.backgroundColor = white;
-        d1h15.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 15) {
-        d2h14.style.backgroundColor = white;
-        d2h15.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 15) {
-        d3h14.style.backgroundColor = white;
-        d3h15.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 15) {
-        d4h14.style.backgroundColor = white;
-        d4h15.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 15) {
-        d5h14.style.backgroundColor = white;
-        d5h15.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 16) {
-        d1h15.style.backgroundColor = white;
-        d1h16.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 16) {
-        d2h15.style.backgroundColor = white;
-        d2h16.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 16) {
-        d3h15.style.backgroundColor = white;
-        d3h16.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 16) {
-        d4h15.style.backgroundColor = white;
-        d4h16.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 16) {
-        d5h15.style.backgroundColor = white;
-        d5h16.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 17) {
-        d1h16.style.backgroundColor = white;
-        d1h17.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 17) {
-        d2h16.style.backgroundColor = white;
-        d2h17.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 17) {
-        d3h16.style.backgroundColor = white;
-        d3h17.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 17) {
-        d4h16.style.backgroundColor = white;
-        d4h17.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 17) {
-        d5h16.style.backgroundColor = white;
-        d5h17.style.backgroundColor = blue;
-    } else if (dayCode == 1 && hourCode == 18) {
-        d1h17.style.backgroundColor = white;
-        d1h18.style.backgroundColor = blue;
-    } else if (dayCode == 2 && hourCode == 18) {
-        d2h17.style.backgroundColor = white;
-        d2h18.style.backgroundColor = blue;
-    } else if (dayCode == 3 && hourCode == 18) {
-        d3h17.style.backgroundColor = white;
-        d3h18.style.backgroundColor = blue;
-    } else if (dayCode == 4 && hourCode == 18) {
-        d4h17.style.backgroundColor = white;
-        d4h18.style.backgroundColor = blue;
-    } else if (dayCode == 5 && hourCode == 18) {
-        d5h17.style.backgroundColor = white;
-        d5h18.style.backgroundColor = blue;
+        // Highlight current cell if applicable
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+            const cellId = `d${dayOfWeek}h${currentHour}`;
+            const currentCell = document.getElementById(cellId);
+            if (currentCell) {
+                currentCell.classList.add("current-cell");
+            }
+        }
     }
 }
 
+// Run updateTime every 10 seconds
 updateTime();
 setInterval(updateTime, 10000);
 
-//highlight subjects
-
-Array.from(subject).forEach(function (subject) {
-    subject.addEventListener("click", function () {
-        markSubject(subject);
+// Subject highlighting feature
+const subjects = document.querySelectorAll(".subject");
+subjects.forEach((subject) => {
+    subject.addEventListener("click", () => {
+        const isMarked = subject.getAttribute("data-marked") === "true";
+        if (!isMarked) {
+            subject.innerHTML = "<mark>" + subject.innerHTML + "</mark>";
+            subject.setAttribute("data-marked", "true");
+        } else {
+            subject.innerHTML = subject.innerHTML.replace("<mark>", "").replace("</mark>", "");
+            subject.setAttribute("data-marked", "false");
+        }
     });
 });
 
-function markSubject(el) {
-    let marked = el.getAttribute("data-marked") === "true";
-    if (!marked) {
-        el.innerHTML = "<mark>" + el.innerHTML + "</mark>";
-        el.setAttribute("data-marked", "true");
-    } else {
-        el.innerHTML = el.innerHTML.replace("<mark>", "").replace("</mark>", "");
-        el.setAttribute("data-marked", "false");
-    }
-}
-
-//decide color theme
-
-const switchTheme = document.getElementById("switchTheme");
-let currentTheme = 0;
-
+// Theme toggle
 function changeTheme() {
-    if (currentTheme == 0) {
-        document.documentElement.style.setProperty("color-scheme", "dark");
-        currentTheme = 1;
-    } else if (currentTheme == 1) {
-        document.documentElement.style.setProperty("color-scheme", "light");
-        currentTheme = 0;
+    isDarkTheme = !isDarkTheme;
+
+    if (isDarkTheme) {
+        document.body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+        localStorage.setItem("theme", "dark"); // Save theme to localStorage
+    } else {
+        document.body.removeAttribute("data-theme");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        localStorage.setItem("theme", "light"); // Save theme to localStorage
     }
 }
 
-// The weather part...
-
-// Coordinates for Bucharest
-const latitude = 44.4328;
-const longitude = 26.1043;
-
-// The URL to fetch weather data
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+    document.body.setAttribute("data-theme", "dark");
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+    isDarkTheme = true;
 } else {
-    console.log("Geolocația nu este suportată de browser.");
+    document.body.removeAttribute("data-theme");
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+    isDarkTheme = false;
 }
 
-function success(position) {
+// Weather API
+function getWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
+    } else {
+        weatherDisplay.innerHTML = "Geolocația nu este disponibilă în browser.";
+    }
+}
+
+function fetchWeatherData(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 
@@ -314,31 +173,35 @@ function success(position) {
         .then((data) => {
             const temperature = data.current_weather.temperature;
             const weatherCode = data.current_weather.weathercode;
+            const weatherEmoji = getWeatherEmoji(weatherCode);
             const sunrise = formatTime(data.daily.sunrise[0]);
             const sunset = formatTime(data.daily.sunset[0]);
-            const weatherDescription = getWeatherDescription(weatherCode);
 
-            document.getElementById(
-                "weather"
-            ).innerHTML = `${temperature}°C&nbsp;&nbsp;&nbsp;${weatherDescription}<br>
-                Răsărit&nbsp;&nbsp;&nbsp;${sunrise}<br>
-                Apus&nbsp;&nbsp;&nbsp;${sunset}`;
+            weatherDisplay.innerHTML = `
+                <div class="weather-main">
+                    <span>${temperature}°C</span>
+                    <span>${weatherEmoji}</span>
+                </div>
+                <div class="sun-info">
+                    <span>🌅 ${sunrise}</span>
+                    <span>🌇 ${sunset}</span>
+                </div>
+            `;
         })
         .catch((error) => {
-            console.error("Eroare:", error);
+            weatherDisplay.innerHTML = "Nu s-au putut încărca datele meteo.";
         });
 }
 
-function error() {
-    document.getElementById("weather").innerText = "";
+function handleLocationError() {
+    weatherDisplay.innerHTML = "";
 }
 
 function formatTime(isoString) {
     return isoString.split("T")[1].slice(0, 5);
 }
 
-// Function to interpret Open-Meteo weather codes
-function getWeatherDescription(code) {
+function getWeatherEmoji(code) {
     const weatherCodes = {
         0: "☀️",
         1: "🌤️",
@@ -358,11 +221,27 @@ function getWeatherDescription(code) {
         95: "⛈️",
         96: "⛈️🌨️",
     };
-    return weatherCodes[code] || "Ceruri misterioase 🤷‍♂️";
+    return weatherCodes[code] || "🤷‍♂️";
 }
 
-setInterval(() => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-    }
-}, 300000);
+// Initialize weather and update every 5 minutes
+getWeather();
+setInterval(getWeather, 300000);
+
+// Color picker
+
+const colorPicker = document.getElementById("accentColorPicker");
+
+colorPicker.addEventListener("input", (event) => {
+    const newColor = event.target.value;
+    document.documentElement.style.setProperty("--accent-color", newColor);
+});
+colorPicker.addEventListener("change", (event) => {
+    const newColor = event.target.value;
+    localStorage.setItem("accentColor", newColor);
+});
+const savedColor = localStorage.getItem("accentColor");
+if (savedColor) {
+    document.documentElement.style.setProperty("--accent-color", savedColor);
+    colorPicker.value = savedColor;
+}

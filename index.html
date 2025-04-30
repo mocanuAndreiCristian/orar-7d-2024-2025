@@ -17,108 +17,124 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     </head>
     <body>
-        <button id="switchTheme" onclick="changeTheme()">
-            <i id="sunImage" class="fa-regular fa-sun"></i>
-        </button>
+        <div class="container">
+            <div class="header">
+                <button id="switchTheme" class="btn" onclick="changeTheme()" title="Schimbă tema">
+                    <i id="themeIcon" class="fa-regular fa-sun"></i>
+                </button>
 
-        <a href="utilities.html" target="_blank"
-            ><button id="manualList">
-                <i class="fa-solid fa-list" id="listImage"></i></button
-        ></a>
+                <h1 class="title">Orar 7D Șcl 27 (2024-2025)</h1>
 
-        <h1>Orar 7D Școala 27 (2024-2025)</h1>
-        <br />
-        <table>
-            <thead>
-                <tr>
-                    <td></td>
-                    <th id="Monday">L</th>
-                    <th id="Tuesday">Ma</th>
-                    <th id="Wednesday">Mi</th>
-                    <th id="Thursday">J</th>
-                    <th id="Friday">V</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th id="12">12</th>
-                    <td class="subject" id="d1h12" title="Informatică">Informatică 💻</td>
-                    <td id="d2h12"></td>
-                    <td class="subject" id="d3h12" title="Religie">Religie ☦️</td>
-                    <td id="d4h12"></td>
-                    <td class="subject" id="d5h12" title="Matematică">Matematică 📐</td>
-                </tr>
-                <tr>
-                    <th id="13">13</th>
-                    <td class="subject" id="d1h13" title="Geografie">Geografie 🌍</td>
-                    <td class="subject" id="d2h13" title="Chimie">Chimie 🧪</td>
-                    <td class="subject" id="d3h13" title="Muzică">Muzică 🎹</td>
-                    <td class="subject" id="d4h13" title="Civică">Civică 🪪</td>
-                    <td class="subject" id="d5h13" title="Educație Fizică">Sport ⚽</td>
-                </tr>
-                <tr>
-                    <th id="14">14</th>
-                    <td class="subject" id="d1h14" title="Matematică">Matematică 📐</td>
-                    <td class="subject" id="d2h14" title="Matematică">Matematică 📐</td>
-                    <td class="subject" id="d3h14" title="Biologie">Biologie ⚕️</td>
-                    <td class="subject" id="d4h14" title="Chimie">Chimie 🧪</td>
-                    <td class="subject" id="d5h14" title="Engleză">
-                        Engleză <img src="img/en.png" alt="EN" class="text-img" />
-                    </td>
-                </tr>
-                <tr>
-                    <th id="15">15</th>
-                    <td class="subject" id="d1h15" title="Română">
-                        Română <img src="img/ro.png" alt="RO" class="text-img" />
-                    </td>
-                    <td class="subject" id="d2h15" title="Franceză">
-                        Franceză <img src="img/fr.png" alt="FR" class="text-img" />
-                    </td>
-                    <td class="subject" id="d3h15" title="Engleză">
-                        Engleză <img src="img/en.png" alt="EN" , class="text-img" />
-                    </td>
-                    <td class="subject" id="d4h15" title="Fizică">Fizică ☄️</td>
-                    <td class="subject" id="d5h15" title="Franceză">
-                        Franceză <img src="img/fr.png" alt="FR" class="text-img" />
-                    </td>
-                </tr>
-                <tr>
-                    <th id="16">16</th>
-                    <td class="subject" id="d1h16" title="Biologie">Biologie ⚕️</td>
-                    <td class="subject" id="d2h16" title="Opțional Matematică">
-                        Opț Matematică 📏
-                    </td>
-                    <td class="subject" id="d3h16" title="Educație Tehnologică">Tehnologică 🧰</td>
-                    <td class="subject" id="d4h16" title="Matematică">Matematică 📐</td>
-                    <td class="subject" id="d5h16" title="Latină">Latină 🦖</td>
-                </tr>
-                <tr>
-                    <th id="17">17</th>
-                    <td class="subject" id="d1h17" title="Dirigenție">Dirigenție 📰</td>
-                    <td class="subject" id="d2h17" title="Română">
-                        Română <img src="img/ro.png" alt="RO" class="text-img" />
-                    </td>
-                    <td class="subject" id="d3h17" title="Arte Plastice">Arte Plastice 🎨</td>
-                    <td class="subject" id="d4h17" title="Română">
-                        Română <img src="img/ro.png" alt="RO" class="text-img" />
-                    </td>
-                    <td class="subject" id="d5h17" title="Română">
-                        Română <img src="img/ro.png" alt="RO" class="text-img" />
-                    </td>
-                </tr>
-                <tr>
-                    <th id="18">18</th>
-                    <td class="subject" id="d1h18" title="Istorie">Istorie 📜</td>
-                    <td class="subject" id="d2h18" title="Fizică">Fizică ☄️</td>
-                    <td id="d3h18"></td>
-                    <td class="subject" id="d4h18" title="Educație Fizică">Sport ⚽</td>
-                    <td id="d5h18"></td>
-                </tr>
-            </tbody>
-        </table>
+                <a href="utilities.html" target="_blank" class="btn" title="Utilități">
+                    <i class="fa-solid fa-list"></i>
+                </a>
+            </div>
 
-        <p id="hourOfTheDay"></p>
-        <p id="weather"></p>
+            <div class="timetable-wrapper">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th id="Monday">Luni</th>
+                            <th id="Tuesday">Marți</th>
+                            <th id="Wednesday">Miercuri</th>
+                            <th id="Thursday">Joi</th>
+                            <th id="Friday">Vineri</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id="12">12:00</th>
+                            <td class="subject" id="d1h12" title="Informatică">Informatică 💻</td>
+                            <td id="d2h12"></td>
+                            <td class="subject" id="d3h12" title="Religie">Religie ☦️</td>
+                            <td id="d4h12"></td>
+                            <td class="subject" id="d5h12" title="Matematică">Matematică 📐</td>
+                        </tr>
+                        <tr>
+                            <th id="13">13:00</th>
+                            <td class="subject" id="d1h13" title="Geografie">Geografie 🌍</td>
+                            <td class="subject" id="d2h13" title="Chimie">Chimie 🧪</td>
+                            <td class="subject" id="d3h13" title="Muzică">Muzică 🎹</td>
+                            <td class="subject" id="d4h13" title="Civică">Civică 🪪</td>
+                            <td class="subject" id="d5h13" title="Educație Fizică">Sport ⚽</td>
+                        </tr>
+                        <tr>
+                            <th id="14">14:00</th>
+                            <td class="subject" id="d1h14" title="Matematică">Matematică 📐</td>
+                            <td class="subject" id="d2h14" title="Matematică">Matematică 📐</td>
+                            <td class="subject" id="d3h14" title="Biologie">Biologie ⚕️</td>
+                            <td class="subject" id="d4h14" title="Chimie">Chimie 🧪</td>
+                            <td class="subject" id="d5h14" title="Engleză">
+                                Engleză <img src="img/en.png" alt="EN" class="text-img" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="15">15:00</th>
+                            <td class="subject" id="d1h15" title="Română">
+                                Română <img src="img/ro.png" alt="RO" class="text-img" />
+                            </td>
+                            <td class="subject" id="d2h15" title="Franceză">
+                                Franceză <img src="img/fr.png" alt="FR" class="text-img" />
+                            </td>
+                            <td class="subject" id="d3h15" title="Engleză">
+                                Engleză <img src="img/en.png" alt="EN" class="text-img" />
+                            </td>
+                            <td class="subject" id="d4h15" title="Fizică">Fizică ☄️</td>
+                            <td class="subject" id="d5h15" title="Franceză">
+                                Franceză <img src="img/fr.png" alt="FR" class="text-img" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="16">16:00</th>
+                            <td class="subject" id="d1h16" title="Biologie">Biologie ⚕️</td>
+                            <td class="subject" id="d2h16" title="Opțional Matematică">
+                                Opț Matematică 📏
+                            </td>
+                            <td class="subject" id="d3h16" title="Educație Tehnologică">
+                                Tehnologică 🧰
+                            </td>
+                            <td class="subject" id="d4h16" title="Matematică">Matematică 📐</td>
+                            <td class="subject" id="d5h16" title="Latină">Latină 🦖</td>
+                        </tr>
+                        <tr>
+                            <th id="17">17:00</th>
+                            <td class="subject" id="d1h17" title="Dirigenție">Dirigenție 📰</td>
+                            <td class="subject" id="d2h17" title="Română">
+                                Română <img src="img/ro.png" alt="RO" class="text-img" />
+                            </td>
+                            <td class="subject" id="d3h17" title="Arte Plastice">
+                                Arte Plastice 🎨
+                            </td>
+                            <td class="subject" id="d4h17" title="Română">
+                                Română <img src="img/ro.png" alt="RO" class="text-img" />
+                            </td>
+                            <td class="subject" id="d5h17" title="Română">
+                                Română <img src="img/ro.png" alt="RO" class="text-img" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="18">18:00</th>
+                            <td class="subject" id="d1h18" title="Istorie">Istorie 📜</td>
+                            <td class="subject" id="d2h18" title="Fizică">Fizică ☄️</td>
+                            <td id="d3h18"></td>
+                            <td class="subject" id="d4h18" title="Educație Fizică">Sport ⚽</td>
+                            <td id="d5h18"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-panel">
+                <div class="time-display" id="hourOfTheDay"></div>
+                <div class="weather-display" id="weather"></div>
+            </div>
+
+            <div class="color-picker">
+                <label for="accentColorPicker">Accent Color</label>
+                <input type="color" id="accentColorPicker" value="#c592ff" />
+            </div>
+        </div>
 
         <script src="index.js"></script>
     </body>
