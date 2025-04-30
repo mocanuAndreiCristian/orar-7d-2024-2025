@@ -91,7 +91,6 @@ body {
 
 .btn:hover {
     background-color: var(--highlight-color);
-    /* transform: translateY(-3px); */
     transform: scale(1.1);
     box-shadow: 0 4px 8px var(--shadow-color);
 }
