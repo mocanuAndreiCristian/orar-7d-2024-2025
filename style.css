@@ -1,13 +1,11 @@
 :root {
-    --primary-color: #3c78d1;
-    --secondary-color: #6c91c2;
-    --accent-color: #a455ff;
+    --accent-color: #6196ff;
     --text-color: #333333;
     --bg-color: #f9f9f9;
     --card-bg: #ffffff;
     --border-color: #e0e0e0;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --highlight-color: #f0f7ff;
+    --highlight-color: #f5f5f5;
     --current-hour-color: #81ade6;
     --current-day-color: #81ade6;
     --font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
@@ -15,15 +13,12 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #5d8bc3;
-    --secondary-color: #3a5b8c;
-    /* --accent-color: #6f32b4; */
     --text-color: #f0f0f0;
     --bg-color: #1a1a1a;
     --card-bg: #2d2d2d;
     --border-color: #3d3d3d;
     --shadow-color: rgba(0, 0, 0, 0.3);
-    --highlight-color: #333a44;
+    --highlight-color: #424242;
     --current-hour-color: #2a527a;
     --current-day-color: #2a527a;
 }
@@ -44,10 +39,19 @@ body {
     padding: 1rem;
 }
 
-.container {
-    max-width: 1200px;
+.biggest-container {
+    max-width: 1600px;
     margin: 0 auto;
     padding: 1rem;
+}
+
+.big-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    gap: 2rem;
 }
 
 .header {
@@ -60,7 +64,7 @@ body {
 
 .title {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-align: center;
     margin: 1rem auto;
     font-weight: 700;
@@ -75,7 +79,7 @@ body {
 
 .btn {
     background-color: var(--card-bg);
-    color: var(--primary-color);
+    color: var(--accent-color);
     border: 1px solid var(--border-color);
     border-radius: 50%;
     width: 50px;
@@ -121,7 +125,7 @@ body {
     border: 1px solid var(--border-color);
     position: relative;
     transition: background-color var(--transition-speed);
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .timetable th {
@@ -150,15 +154,15 @@ body {
 }
 
 .current-day {
-    background-color: var(--current-day-color) !important;
+    color: var(--accent-color) !important;
 }
 
 .current-hour {
-    background-color: var(--current-hour-color) !important;
+    color: var(--accent-color) !important;
 }
 
 .current-cell {
-    background-color: var(--current-hour-color) !important;
+    color: var(--accent-color) !important;
 }
 
 .info-panel {
@@ -173,28 +177,49 @@ body {
 .time-display {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--accent-color);
     transition: color var(--transition-speed);
+    margin-top: 1.5rem;
 }
 
-.weather-display {
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
+.weather-container {
+    text-align: center;
     background-color: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 3px 6px var(--shadow-color);
-    width: fit-content;
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
-.weather-main {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.5rem;
+.weather-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.weather-temp {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.weather-desc {
+    font-size: 1.25rem;
+    text-transform: capitalize;
+}
+
+.weather-location {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.weather-details > p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.weather-sun {
+    margin-top: 2rem;
 }
 
 .sun-info {
@@ -204,15 +229,15 @@ body {
 }
 
 .text-img {
-    height: 1.35em;
-    transform: translateY(0.25em);
+    height: 1.4rem;
+    transform: translateY(0.25rem);
 }
 
 mark {
     background-color: var(--accent-color);
     border-radius: 2px;
     transition: all var(--transition-speed);
-    color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .color-picker {
@@ -221,7 +246,7 @@ mark {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1.25em;
+    font-size: 1.25rem;
     color: var(--text-color);
     animation: fadeInUp 1.5s ease;
 }

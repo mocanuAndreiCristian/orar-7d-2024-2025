@@ -154,77 +154,145 @@ if (savedTheme === "dark") {
 }
 
 // Weather API
+
 function getWeather() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
     } else {
-        weatherDisplay.innerHTML = "Geolocația nu este disponibilă în browser.";
+        document.getElementById("weather-desc").textContent = "Geolocația nu e disponibilă.";
     }
 }
 
 function fetchWeatherData(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
 
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=sunrise,sunset&timezone=auto`;
+    // Removed moon_phase from the API URL
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=sunrise,sunset&hourly=apparent_temperature,relative_humidity_2m&timezone=auto`;
 
     fetch(url)
-        .then((response) => response.json())
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`API error: ${res.status} ${res.statusText}`);
+            }
+            return res.json();
+        })
         .then((data) => {
-            const temperature = data.current_weather.temperature;
-            const weatherCode = data.current_weather.weathercode;
-            const weatherEmoji = getWeatherEmoji(weatherCode);
+            const weather = data.current_weather;
+            const temp = `${weather.temperature}°C`;
+
             const sunrise = formatTime(data.daily.sunrise[0]);
             const sunset = formatTime(data.daily.sunset[0]);
 
-            weatherDisplay.innerHTML = `
-                <div class="weather-main">
-                    <span>${temperature}°C</span>
-                    <span>${weatherEmoji}</span>
-                </div>
-                <div class="sun-info">
-                    <span>🌅 ${sunrise}</span>
-                    <span>🌇 ${sunset}</span>
-                </div>
-            `;
+            const now = new Date();
+            const sunriseTime = new Date(data.daily.sunrise[0]);
+            const sunsetTime = new Date(data.daily.sunset[0]);
+            const isNight = now < sunriseTime || now > sunsetTime;
+
+            // Use a default moon emoji for nighttime
+            const emoji = isNight
+                ? "🌙" // Default moon icon for nighttime
+                : getWeatherEmoji(weather.weathercode);
+
+            // Inject into DOM
+            document.getElementById("weather-emoji").textContent = emoji;
+            document.getElementById("weather-temp").textContent = temp;
+            document.getElementById("weather-desc").textContent = getWeatherDescription(
+                weather.weathercode
+            );
+            document.getElementById("weather-location").textContent = "📍 Voluntari, RO";
+            document.getElementById("sunrise").textContent = sunrise;
+            document.getElementById("sunset").textContent = sunset;
+
+            const currentHourIndex = new Date().getHours();
+            const feelsLike = data.hourly.apparent_temperature[currentHourIndex];
+            const humidity = data.hourly.relative_humidity_2m[currentHourIndex];
+            const wind = data.current_weather.windspeed;
+
+            document.getElementById("feels-like").textContent = `Feels like: ${feelsLike}°C`;
+            document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
+            document.getElementById("wind-speed").textContent = `Wind: ${wind} m/s`;
         })
         .catch((error) => {
-            weatherDisplay.innerHTML = "Nu s-au putut încărca datele meteo.";
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weather-desc").textContent = "Failed to fetch weather data.";
         });
 }
 
-function handleLocationError() {
-    weatherDisplay.innerHTML = "";
+function getMoonEmoji(phase) {
+    if (phase < 0.03 || phase > 0.97) return "🌑"; // New Moon
+    if (phase < 0.22) return "🌒"; // Waxing Crescent
+    if (phase < 0.28) return "🌓"; // First Quarter
+    if (phase < 0.47) return "🌔"; // Waxing Gibbous
+    if (phase < 0.53) return "🌕"; // Full Moon
+    if (phase < 0.72) return "🌖"; // Waning Gibbous
+    if (phase < 0.78) return "🌗"; // Last Quarter
+    return "🌘"; // Waning Crescent
 }
 
-function formatTime(isoString) {
-    return isoString.split("T")[1].slice(0, 5);
+function handleLocationError() {
+    document.getElementById("weather-desc").textContent = "Eroare la detectarea locației.";
+}
+
+function formatTime(iso) {
+    return iso.split("T")[1].slice(0, 5);
 }
 
 function getWeatherEmoji(code) {
-    const weatherCodes = {
+    const codes = {
         0: "☀️",
         1: "🌤️",
         2: "⛅",
         3: "☁️",
         45: "🌫️",
-        48: "❄️🌫️",
-        51: "🌧️",
+        48: "🌫️❄️",
+        51: "🌦️",
         53: "🌧️",
         55: "🌧️",
-        61: "🌦️",
+        61: "🌧️",
         63: "🌧️",
         65: "🌧️🌧️",
         71: "🌨️",
         73: "🌨️",
         75: "❄️❄️",
+        80: "🌦️",
+        81: "🌧️",
+        82: "🌧️🌧️",
         95: "⛈️",
         96: "⛈️🌨️",
+        99: "⛈️❄️",
     };
-    return weatherCodes[code] || "🤷‍♂️";
+    return codes[code] || "🤷‍♂️";
 }
 
-// Initialize weather and update every 5 minutes
+function getWeatherDescription(code) {
+    const descriptions = {
+        0: "Clear sky",
+        1: "Mainly clear",
+        2: "Partly cloudy",
+        3: "Overcast",
+        45: "Fog",
+        48: "Depositing rime fog",
+        51: "Light drizzle",
+        53: "Moderate drizzle",
+        55: "Dense drizzle",
+        61: "Light rain",
+        63: "Moderate rain",
+        65: "Heavy rain",
+        71: "Light snow",
+        73: "Moderate snow",
+        75: "Heavy snow",
+        80: "Rain showers",
+        81: "Moderate showers",
+        82: "Violent showers",
+        95: "Thunderstorm",
+        96: "Thunderstorm with hail",
+        99: "Severe thunderstorm",
+    };
+    return descriptions[code] || "Unknown";
+}
+
+// Run at start + update every 5 mins
 getWeather();
 setInterval(getWeather, 300000);
 
