@@ -39,6 +39,11 @@ body {
     padding: 1rem;
 }
 
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
 .biggest-container {
     max-width: 1600px;
     margin: 0 auto;
@@ -235,7 +240,7 @@ mark {
     background-color: var(--accent-color);
     border-radius: 2px;
     transition: all var(--transition-speed);
-    color: var(--text-color);
+    color: var(--bg-color);
 }
 
 .color-picker {
@@ -392,12 +397,13 @@ h2 {
     margin-bottom: 1rem;
     width: 90%;
     border-radius: 24px;
-    opacity: 0.75;
+    opacity: 0.9;
     transition: 0.3s;
 }
 
 .container > a > img:hover {
     opacity: 1;
+    transform: scale(1.025);
     transition: 0.3s;
 }
 
