@@ -313,3 +313,78 @@ if (savedColor) {
     document.documentElement.style.setProperty("--accent-color", savedColor);
     colorPicker.value = savedColor;
 }
+
+// To do list
+
+document.addEventListener("DOMContentLoaded", () => {
+    const taskList = document.querySelector(".todo-list"); // Ensure this targets the correct <ul>
+    const addTaskInput = document.querySelector(".add-task input[type='text']");
+    const addTaskButton = document.querySelector(".add-task button");
+
+    // Add event listener for the "Add" button
+    addTaskButton.addEventListener("click", () => {
+        const taskText = addTaskInput.value.trim();
+        if (taskText) {
+            addTask(taskText);
+            addTaskInput.value = ""; // Clear the input field after adding the task
+        }
+    });
+
+    // Add event listener for the "Enter" key in the input field
+    addTaskInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            const taskText = addTaskInput.value.trim();
+            if (taskText) {
+                addTask(taskText);
+                addTaskInput.value = ""; // Clear the input field after adding the task
+            }
+        }
+    });
+
+    taskList.addEventListener("click", (e) => {
+        const target = e.target;
+
+        // Check if the clicked element is the delete button or its child (icon)
+        if (target.classList.contains("delete-btn") || target.closest(".delete-btn")) {
+            const li = target.closest("li"); // Find the closest <li> element
+            if (li) {
+                li.remove(); // Remove the task from the DOM
+                saveTasks(); // Save the updated task list to localStorage
+            }
+        }
+
+        // Save tasks when a checkbox is toggled
+        if (target.type === "checkbox") {
+            saveTasks();
+        }
+    });
+
+    function addTask(text, checked = false) {
+        const li = document.createElement("li");
+        li.className = "todo-item";
+        li.innerHTML = `
+        <input type="checkbox" ${checked ? "checked" : ""}>
+        <label>${text}</label>
+        <button class="delete-btn" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+      `;
+        taskList.appendChild(li);
+        saveTasks();
+    }
+
+    function saveTasks() {
+        const tasks = [];
+        document.querySelectorAll(".todo-item").forEach((item) => {
+            const label = item.querySelector("label").textContent;
+            const checked = item.querySelector('input[type="checkbox"]').checked;
+            tasks.push({ text: label, checked });
+        });
+        localStorage.setItem("todo-tasks", JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+        const data = JSON.parse(localStorage.getItem("todo-tasks")) || [];
+        data.forEach((task) => addTask(task.text, task.checked));
+    }
+
+    loadTasks();
+});
