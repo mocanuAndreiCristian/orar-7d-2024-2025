@@ -9,7 +9,7 @@
     --current-hour-color: #81ade6;
     --current-day-color: #81ade6;
     --font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-    --transition-speed: 0.3s;
+    --transition-speed: 0.2s;
 }
 
 [data-theme="dark"] {
@@ -179,7 +179,7 @@ a {
 }
 
 .time-display {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--accent-color);
     transition: color var(--transition-speed);
@@ -193,11 +193,11 @@ a {
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all var(--transition-speed);
 }
 
 .weather-emoji {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 5rem;
 }
 
 .weather-temp {
@@ -399,13 +399,13 @@ h2 {
     width: 90%;
     border-radius: 24px;
     opacity: 0.9;
-    transition: 0.3s;
+    transition: var(--transition-speed);
 }
 
 .container > a > img:hover {
     opacity: 1;
     transform: scale(1.025);
-    transition: 0.3s;
+    transition: var(--transition-speed);
 }
 
 @media (max-width: 1440px) {
