@@ -98,11 +98,11 @@ a {
     animation: fadeInDown 1s ease;
 }
 
-.btn:hover {
+/* .btn:hover {
     background-color: var(--highlight-color);
     transform: scale(1.1);
     box-shadow: 0 4px 8px var(--shadow-color);
-}
+} */
 
 .btn i {
     font-size: 1.5rem;
@@ -246,24 +246,39 @@ mark {
 }
 
 .color-picker {
-    margin: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1.25rem;
-    color: var(--text-color);
-    animation: fadeInDown 1.5s ease;
-    border: hidden;
+    position: relative;
 }
 
 .color-picker input[type="color"] {
-    border: hidden;
-    background-color: var(--accent-color);
-    width: 40px;
-    height: 40px;
+    position: absolute;
+    opacity: 0; /* Hide the color input */
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    border-radius: 50px;
+}
+
+.color-picker .btn {
+    background-color: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    animation: fadeInDown 1s ease;
+}
+
+.color-picker .btn i {
+    font-size: 1.5rem;
 }
 
 @keyframes fadeInDown {
@@ -340,6 +355,58 @@ mark {
     .time-display {
         font-size: 2rem;
     }
+
+    /* Adjust the To-Do List container */
+    .todo-container {
+        padding: 1rem; /* Reduce padding */
+        margin: 1rem 0; /* Reduce vertical margin */
+    }
+
+    /* Adjust the To-Do Card */
+    .todo-card {
+        padding: 1.5rem; /* Reduce padding inside the card */
+        max-width: 90vw; /* Make the card take up more width on smaller screens */
+    }
+
+    /* Adjust the heading */
+    .todo-card h2 {
+        font-size: 1.5rem; /* Reduce font size */
+    }
+
+    /* Adjust To-Do List items */
+    .todo-item {
+        padding: 0.5rem 0.75rem; /* Reduce padding */
+        font-size: 0.9rem; /* Reduce font size */
+    }
+
+    .todo-item label {
+        font-size: 0.9rem; /* Reduce label font size */
+    }
+
+    .todo-item input[type="checkbox"] {
+        width: 1rem; /* Reduce checkbox size */
+        height: 1rem;
+    }
+
+    .todo-item .delete-btn {
+        font-size: 1rem; /* Reduce delete button size */
+    }
+
+    /* Adjust Add Task section */
+    .add-task {
+        flex-direction: column; /* Stack input and button vertically */
+        gap: 0.5rem; /* Reduce gap */
+    }
+
+    .add-task input[type="text"] {
+        font-size: 0.9rem; /* Reduce font size */
+        padding: 0.5rem; /* Reduce padding */
+    }
+
+    .add-task button {
+        font-size: 0.9rem; /* Reduce font size */
+        padding: 0.5rem 1rem; /* Reduce padding */
+    }
 }
 
 @media (max-width: 576px) {
@@ -363,6 +430,40 @@ mark {
     }
     .weather-display {
         font-size: 1rem;
+    }
+
+    .todo-card {
+        max-width: 95vw;
+        width: 100%;
+        padding: 1rem; /* Reduce padding */
+        margin: 0 auto;
+    }
+
+    .todo-container {
+        padding: 0.5rem; /* Reduce padding */
+    }
+
+    /* Further adjustments for very small screens */
+    .todo-card h2 {
+        font-size: 1.25rem; /* Further reduce font size */
+    }
+
+    .todo-item {
+        padding: 0.5rem; /* Reduce padding further */
+    }
+
+    .todo-item input[type="checkbox"] {
+        width: 0.9rem; /* Further reduce checkbox size */
+        height: 0.9rem;
+    }
+
+    .add-task input[type="text"] {
+        font-size: 0.8rem; /* Further reduce font size */
+    }
+
+    .add-task button {
+        font-size: 0.8rem; /* Further reduce font size */
+        padding: 0.4rem 0.8rem; /* Further reduce padding */
     }
 }
 
