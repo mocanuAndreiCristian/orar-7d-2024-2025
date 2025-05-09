@@ -418,13 +418,6 @@ mark {
         padding: 0.4rem;
         font-size: 0.7rem;
     }
-    .btn {
-        width: 40px;
-        height: 40px;
-    }
-    .btn i {
-        font-size: 1.2rem;
-    }
     .time-display {
         font-size: 1.8rem;
     }
