@@ -30,6 +30,11 @@
     transition: all var(--transition-speed);
 }
 
+*::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
 body {
     font-family: var(--font-family);
     background-color: var(--bg-color);
@@ -198,7 +203,7 @@ a {
 }
 
 .weather-emoji {
-    font-size: 5rem;
+    font-size: 5.5rem;
 }
 
 .weather-temp {
@@ -358,29 +363,33 @@ mark {
 
     /* Adjust the To-Do List container */
     .todo-container {
-        padding: 1rem; /* Reduce padding */
-        margin: 1rem 0; /* Reduce vertical margin */
+        padding: 0; /* Remove padding around the container */
+        margin: 0; /* Remove margins */
+        width: 100%; /* Ensure the container spans the full width */
     }
 
     /* Adjust the To-Do Card */
     .todo-card {
-        padding: 1.5rem; /* Reduce padding inside the card */
-        max-width: 90vw; /* Make the card take up more width on smaller screens */
+        padding: 1.5rem; /* Adjust padding inside the card */
+        max-width: 95vw; /* Make the card take up 95% of the viewport width */
+        width: 95vw; /* Explicitly set the width to 95% of the viewport width */
+        margin: 0 auto; /* Center the card horizontally */
+        box-sizing: border-box; /* Include padding and border in the width calculation */
     }
 
     /* Adjust the heading */
     .todo-card h2 {
-        font-size: 1.5rem; /* Reduce font size */
+        font-size: 1.25rem; /* Reduce font size */
     }
 
     /* Adjust To-Do List items */
     .todo-item {
         padding: 0.5rem 0.75rem; /* Reduce padding */
-        font-size: 0.9rem; /* Reduce font size */
+        font-size: 0.75rem; /* Reduce font size */
     }
 
     .todo-item label {
-        font-size: 0.9rem; /* Reduce label font size */
+        font-size: 0.75rem; /* Reduce label font size */
     }
 
     .todo-item input[type="checkbox"] {
@@ -389,22 +398,22 @@ mark {
     }
 
     .todo-item .delete-btn {
-        font-size: 1rem; /* Reduce delete button size */
+        font-size: 0.75rem; /* Reduce delete button size */
     }
 
     /* Adjust Add Task section */
     .add-task {
         flex-direction: column; /* Stack input and button vertically */
-        gap: 0.5rem; /* Reduce gap */
+        gap: 0.25rem; /* Reduce gap */
     }
 
     .add-task input[type="text"] {
-        font-size: 0.9rem; /* Reduce font size */
+        font-size: 0.75rem; /* Reduce font size */
         padding: 0.5rem; /* Reduce padding */
     }
 
     .add-task button {
-        font-size: 0.9rem; /* Reduce font size */
+        font-size: 0.75rem; /* Reduce font size */
         padding: 0.5rem 1rem; /* Reduce padding */
     }
 }
@@ -677,7 +686,7 @@ h2 {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    transition: all var(--transition-speed);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -686,4 +695,80 @@ h2 {
     transform: scale(1.05);
     transition: all var(--transition-speed);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+
+footer {
+    color: var(--text-color);
+    animation: fadeInUp 1.5s ease;
+}
+
+.footer-content {
+    text-align: center;
+    margin-top: 4rem;
+    margin-inline: auto;
+    max-width: 75vw;
+    font-size: 0.875rem;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.socials div {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all var(--transition-speed);
+    animation: fadeInUp 1.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.socials h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+.socials a {
+    color: var(--text-color);
+    font-size: 3rem;
+    transition: all var(--transition-speed);
+}
+.socials a:hover {
+    transition: all var(--transition-speed);
+    transform: scale(1.1);
+}
+
+.ig:hover {
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+        radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+        linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+    background-clip: text; /* Standard property for compatibility */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+}
+
+.dc:hover {
+    color: #7289da;
+}
+
+.gh:hover {
+    color: #000000;
+}
+
+.todo-card {
+    position: relative;
+    overflow: auto; /* Ensure scrollbars appear if content overflows */
 }
