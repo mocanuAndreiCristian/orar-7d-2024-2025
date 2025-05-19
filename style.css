@@ -772,3 +772,22 @@ footer {
     position: relative;
     overflow: auto; /* Ensure scrollbars appear if content overflows */
 }
+
+.edit-task-input {
+    flex: 1;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    margin-right: 0.5rem;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.edit-task-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}

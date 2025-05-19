@@ -359,6 +359,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Enable editing on double-click
+    taskList.addEventListener("dblclick", (e) => {
+        const label = e.target.closest("label");
+        if (!label) return;
+
+        const li = label.closest("li");
+        const checkbox = li.querySelector('input[type="checkbox"]');
+        const deleteBtn = li.querySelector(".delete-btn");
+        const oldText = label.textContent;
+
+        // Create an input field for editing
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = oldText;
+        input.className = "edit-task-input";
+        label.replaceWith(input);
+        input.focus();
+
+        // Save on blur or Enter
+        function saveEdit() {
+            const newText = input.value.trim() || oldText;
+            const newLabel = document.createElement("label");
+            newLabel.textContent = newText;
+            input.replaceWith(newLabel);
+            saveTasks();
+        }
+
+        input.addEventListener("blur", saveEdit);
+        input.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                input.blur();
+            }
+        });
+    });
+
     function addTask(text, checked = false) {
         const li = document.createElement("li");
         li.className = "todo-item";
