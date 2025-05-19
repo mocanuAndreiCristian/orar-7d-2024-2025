@@ -317,7 +317,7 @@ if (savedColor) {
 // To do list
 
 document.addEventListener("DOMContentLoaded", () => {
-    const taskList = document.querySelector(".todo-list"); // Ensure this targets the correct <ul>
+    const taskList = document.querySelector(".todo-list");
     const addTaskInput = document.querySelector(".add-task input[type='text']");
     const addTaskButton = document.querySelector(".add-task button");
 
@@ -344,16 +344,37 @@ document.addEventListener("DOMContentLoaded", () => {
     taskList.addEventListener("click", (e) => {
         const target = e.target;
 
-        // Check if the clicked element is the delete button or its child (icon)
-        if (target.classList.contains("delete-btn") || target.closest(".delete-btn")) {
-            const li = target.closest("li"); // Find the closest <li> element
-            if (li) {
-                li.remove(); // Remove the task from the DOM
-                saveTasks(); // Save the updated task list to localStorage
+        // Move Up
+        if (target.classList.contains("move-up-btn") || target.closest(".move-up-btn")) {
+            const li = target.closest("li");
+            if (li && li.previousElementSibling) {
+                li.parentNode.insertBefore(li, li.previousElementSibling);
+                saveTasks();
             }
+            return;
         }
 
-        // Save tasks when a checkbox is toggled
+        // Move Down
+        if (target.classList.contains("move-down-btn") || target.closest(".move-down-btn")) {
+            const li = target.closest("li");
+            if (li && li.nextElementSibling) {
+                li.parentNode.insertBefore(li.nextElementSibling, li);
+                saveTasks();
+            }
+            return;
+        }
+
+        // Delete
+        if (target.classList.contains("delete-btn") || target.closest(".delete-btn")) {
+            const li = target.closest("li");
+            if (li) {
+                li.remove();
+                saveTasks();
+            }
+            return;
+        }
+
+        // Checkbox
         if (target.type === "checkbox") {
             saveTasks();
         }
@@ -397,11 +418,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function addTask(text, checked = false) {
         const li = document.createElement("li");
         li.className = "todo-item";
+        li.draggable = true; // Enable drag and drop
         li.innerHTML = `
         <input type="checkbox" ${checked ? "checked" : ""}>
         <label>${text}</label>
-        <button class="delete-btn" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-      `;
+        <div class="todo-actions">
+            <button class="delete-btn" title="Șterge"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </div>
+    `;
         taskList.appendChild(li);
         saveTasks();
     }
@@ -422,4 +446,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     loadTasks();
+
+    // Drag and drop functionality
+    let draggedItem = null;
+
+    taskList.addEventListener("dragstart", (e) => {
+        if (e.target.classList.contains("todo-item")) {
+            draggedItem = e.target;
+            e.target.classList.add("dragging");
+        }
+    });
+
+    taskList.addEventListener("dragend", (e) => {
+        if (e.target.classList.contains("todo-item")) {
+            e.target.classList.remove("dragging");
+            draggedItem = null;
+            saveTasks();
+        }
+    });
+
+    taskList.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(taskList, e.clientY);
+        if (!draggedItem) return;
+        if (afterElement == null) {
+            taskList.appendChild(draggedItem);
+        } else {
+            taskList.insertBefore(draggedItem, afterElement);
+        }
+    });
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll(".todo-item:not(.dragging)")];
+        return draggableElements.reduce(
+            (closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            },
+            { offset: -Infinity }
+        ).element;
+    }
 });

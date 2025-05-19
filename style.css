@@ -791,3 +791,37 @@ footer {
     border-color: var(--accent-color);
     box-shadow: 0 0 5px var(--accent-color);
 }
+
+.todo-actions {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.move-up-btn,
+.move-down-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.move-up-btn:hover,
+.move-down-btn:hover {
+    background: var(--highlight-color);
+    color: var(--text-color);
+    transform: scale(1.15);
+}
+
+.todo-item.dragging {
+    opacity: 0.5;
+    background: var(--highlight-color, #e0e7ff);
+}
+
+.todo-item button {
+    pointer-events: auto;
+}
