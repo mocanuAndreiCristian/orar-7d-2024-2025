@@ -483,6 +483,10 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
     animation: fadeInUp 1.5s ease;
+    margin: auto;
+    width: 50vw;
+    height: 75vh;
+    overflow-y: scroll;
 }
 
 .container {
@@ -491,7 +495,7 @@ h2 {
     padding-inline: 1rem;
     padding-bottom: 1rem;
     margin-inline: auto;
-    width: 25%;
+    width: 40%;
     margin: 1rem;
 }
 
@@ -512,6 +516,10 @@ h2 {
 }
 
 @media (max-width: 1440px) {
+    .boss-container {
+        height: 150vh;
+    }
+
     .container {
         width: 40%;
     }
@@ -520,11 +528,13 @@ h2 {
 @media (max-width: 1024px) {
     .boss-container {
         flex-direction: column;
+        height: 150vh;
     }
     .container {
-        width: 75%;
+        width: 60%;
         margin: auto;
         margin-bottom: 2rem;
+        margin-inline: 2rem;
     }
 }
 
@@ -798,25 +808,6 @@ footer {
     align-items: center;
 }
 
-.move-up-btn,
-.move-down-btn {
-    background: transparent;
-    border: none;
-    color: var(--accent-color);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: color var(--transition-speed), transform var(--transition-speed);
-    padding: 0.2rem;
-    border-radius: 0.3rem;
-}
-
-.move-up-btn:hover,
-.move-down-btn:hover {
-    background: var(--highlight-color);
-    color: var(--text-color);
-    transform: scale(1.15);
-}
-
 .todo-item.dragging {
     opacity: 0.5;
     background: var(--highlight-color, #e0e7ff);
@@ -824,4 +815,10 @@ footer {
 
 .todo-item button {
     pointer-events: auto;
+}
+
+/* Scroll bar */
+
+.boss-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
 }
