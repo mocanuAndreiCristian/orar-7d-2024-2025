@@ -17,20 +17,32 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     </head>
     <body>
+        <div id="background-overlay"></div>
         <div class="biggest-container">
             <div class="header">
-                <button id="switchTheme" class="btn" onclick="changeTheme()" title="Schimbă tema">
-                    <i id="themeIcon" class="fa-regular fa-sun"></i>
+                <button id="settingsButton" class="btn" title="Setări">
+                    <i class="fa-solid fa-gear"></i>
                 </button>
-
-                <h1 class="title">Orar 7D</h1>
-
-                <div class="color-picker" title="Alege o culoare de accent">
-                    <button id="colorPickerButton" class="btn">
-                        <i class="fa-solid fa-paintbrush"></i>
+                <div id="settingsMenu" class="settings-menu">
+                    <button
+                        id="switchTheme"
+                        class="btn"
+                        onclick="changeTheme()"
+                        title="Schimbă tema">
+                        <i id="themeIcon" class="fa-regular fa-sun"></i>
                     </button>
-                    <input type="color" id="accentColorPicker" value="#6196ff" />
+                    <div class="color-picker" title="Alege o culoare de accent">
+                        <button id="colorPickerButton" class="btn">
+                            <i class="fa-solid fa-paintbrush"></i>
+                        </button>
+                        <input type="color" id="accentColorPicker" value="#6196ff" />
+                    </div>
+                    <button id="bgImageButton" class="btn" title="Alege imagine de fundal">
+                        <i class="fa-solid fa-image"></i>
+                    </button>
+                    <input type="file" id="bgImageInput" accept="image/*" style="display: none" />
                 </div>
+                <h1 class="title">Orar 7D</h1>
             </div>
 
             <div class="big-container">

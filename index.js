@@ -492,3 +492,73 @@ document.addEventListener("DOMContentLoaded", () => {
         ).element;
     }
 });
+
+// Settings
+
+const settingsButton = document.getElementById("settingsButton");
+const settingsMenu = document.getElementById("settingsMenu");
+
+settingsButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    settingsMenu.style.display = settingsMenu.style.display === "flex" ? "none" : "flex";
+});
+
+// Hide menu when clicking outside
+document.addEventListener("click", (e) => {
+    if (!settingsMenu.contains(e.target) && e.target !== settingsButton) {
+        settingsMenu.style.display = "none";
+    }
+});
+
+// Bg image
+
+const bgImageButton = document.getElementById("bgImageButton");
+const bgImageInput = document.getElementById("bgImageInput");
+const bgOverlay = document.getElementById("background-overlay");
+
+// Load background image from localStorage if it exists
+const savedBg = localStorage.getItem("custom-bg-image");
+if (savedBg) {
+    bgOverlay.style.backgroundImage = `url('${savedBg}')`;
+}
+
+// Open file picker on click
+bgImageButton.addEventListener("click", () => {
+    bgImageInput.click();
+});
+
+// Set background and save to localStorage
+bgImageInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (evt) {
+        const dataUrl = evt.target.result;
+        // Save current as previous before overwriting
+        const currentBg = localStorage.getItem("custom-bg-image");
+        if (currentBg) {
+            localStorage.setItem("previous-bg-image", currentBg);
+        }
+        bgOverlay.style.backgroundImage = `url('${dataUrl}')`;
+        localStorage.setItem("custom-bg-image", dataUrl);
+    };
+    reader.readAsDataURL(file);
+});
+
+// Lever toggle with backtick key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "`" || e.code === "Backquote") {
+        const currentBg = localStorage.getItem("custom-bg-image");
+        const previousBg = localStorage.getItem("previous-bg-image");
+        if (currentBg) {
+            // Remove current, save as previous, clear background
+            localStorage.setItem("previous-bg-image", currentBg);
+            localStorage.removeItem("custom-bg-image");
+            bgOverlay.style.backgroundImage = "";
+        } else if (previousBg) {
+            // Restore previous
+            localStorage.setItem("custom-bg-image", previousBg);
+            bgOverlay.style.backgroundImage = `url('${previousBg}')`;
+        }
+    }
+});

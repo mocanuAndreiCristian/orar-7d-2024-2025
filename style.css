@@ -555,11 +555,11 @@ h2 {
     justify-content: center;
     align-items: center;
     height: auto; /* Adjust height to fit content */
-    background-color: var(--bg-color);
     transition: all var(--transition-speed);
     padding: 2rem; /* Add padding inside the container */
     margin: 2rem 0;
     box-sizing: border-box; /* Ensure padding is included in the height/width calculation */
+    width: 100%;
 }
 
 /* The to-do card itself */
@@ -821,4 +821,59 @@ footer {
 
 .boss-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar */
+}
+
+/* Settings */
+
+.settings-menu {
+    display: none;
+    position: absolute;
+    left: 60px;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    padding: 1rem;
+    z-index: 100;
+    flex-direction: row; /* <-- changed from column to row */
+    gap: 1rem;
+    min-width: 60px;
+    animation: fadeInDown 0.3s;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#settingsButton {
+    z-index: 101;
+}
+
+.settings-menu .btn,
+.settings-menu .color-picker {
+    margin-bottom: 0; /* Remove bottom margin for horizontal layout */
+}
+
+.settings-menu .color-picker {
+    margin-bottom: 0;
+}
+
+/* Background */
+
+#background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s, opacity 0.3s;
+}
+body {
+    position: relative;
+    z-index: 1;
 }
