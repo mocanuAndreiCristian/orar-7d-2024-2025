@@ -526,12 +526,8 @@ h2 {
 }
 
 @media (max-width: 1024px) {
-    .boss-container {
-        flex-direction: column;
-        height: 150vh;
-    }
     .container {
-        width: 60%;
+        width: 100%;
         margin: auto;
         margin-bottom: 2rem;
         margin-inline: 2rem;
@@ -715,11 +711,9 @@ footer {
 }
 
 .footer-content {
-    text-align: center;
     margin-top: 4rem;
     margin-inline: auto;
-    max-width: 75vw;
-    font-size: 0.875rem;
+    max-width: 50vw;
 }
 
 .socials {
@@ -834,10 +828,11 @@ footer {
     box-shadow: 0 4px 16px var(--shadow-color);
     padding: 1rem;
     z-index: 100;
-    flex-direction: row; /* <-- changed from column to row */
+    flex-direction: row;
     gap: 1rem;
     min-width: 60px;
-    animation: fadeInDown 0.3s;
+    animation: fadeInDown var(--transition-speed);
+    transition: all var(--transition-speed);
 }
 
 .header {
@@ -871,7 +866,7 @@ footer {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    transition: background-image 0.3s, opacity 0.3s;
+    transition: all var(--transition-speed);
 }
 body {
     position: relative;
