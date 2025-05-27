@@ -872,3 +872,7 @@ body {
     position: relative;
     z-index: 1;
 }
+
+#location-dot {
+    color: #ff0000;
+}

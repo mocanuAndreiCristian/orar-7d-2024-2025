@@ -200,7 +200,8 @@ function fetchWeatherData(position) {
             document.getElementById("weather-desc").textContent = getWeatherDescription(
                 weather.weathercode
             );
-            document.getElementById("weather-location").textContent = "📍 Voluntari, RO";
+            document.getElementById("weather-location").innerHTML =
+                '<i id="location-dot" class="fa-solid fa-location-dot"></i> Voluntari, RO';
             document.getElementById("sunrise").textContent = sunrise;
             document.getElementById("sunset").textContent = sunset;
 
