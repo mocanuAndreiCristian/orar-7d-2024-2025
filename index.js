@@ -122,23 +122,6 @@ subjects.forEach((subject) => {
     });
 });
 
-// Theme toggle
-function changeTheme() {
-    isDarkTheme = !isDarkTheme;
-
-    if (isDarkTheme) {
-        document.body.setAttribute("data-theme", "dark");
-        themeIcon.classList.remove("fa-sun");
-        themeIcon.classList.add("fa-moon");
-        localStorage.setItem("theme", "dark"); // Save theme to localStorage
-    } else {
-        document.body.removeAttribute("data-theme");
-        themeIcon.classList.remove("fa-moon");
-        themeIcon.classList.add("fa-sun");
-        localStorage.setItem("theme", "light"); // Save theme to localStorage
-    }
-}
-
 // Apply saved theme on page load
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
@@ -167,7 +150,6 @@ function fetchWeatherData(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
 
-    // Removed moon_phase from the API URL
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&daily=sunrise,sunset&hourly=apparent_temperature,relative_humidity_2m&timezone=auto`;
 
     fetch(url)
@@ -189,34 +171,53 @@ function fetchWeatherData(position) {
             const sunsetTime = new Date(data.daily.sunset[0]);
             const isNight = now < sunriseTime || now > sunsetTime;
 
-            // Use a default moon emoji for nighttime
-            const emoji = isNight
-                ? "🌙" // Default moon icon for nighttime
-                : getWeatherEmoji(weather.weathercode);
+            const emoji = isNight ? "🌙" : getWeatherEmoji(weather.weathercode);
 
-            // Inject into DOM
             document.getElementById("weather-emoji").textContent = emoji;
             document.getElementById("weather-temp").textContent = temp;
             document.getElementById("weather-desc").textContent = getWeatherDescription(
                 weather.weathercode
             );
-            document.getElementById("weather-location").innerHTML =
-                '<i id="location-dot" class="fa-solid fa-location-dot"></i> Voluntari, RO';
             document.getElementById("sunrise").textContent = sunrise;
             document.getElementById("sunset").textContent = sunset;
 
-            const currentHourIndex = new Date().getHours();
-            const feelsLike = data.hourly.apparent_temperature[currentHourIndex];
-            const humidity = data.hourly.relative_humidity_2m[currentHourIndex];
-            const wind = data.current_weather.windspeed;
-
-            document.getElementById("feels-like").textContent = `Feels like: ${feelsLike}°C`;
-            document.getElementById("humidity").textContent = `Humidity: ${humidity}%`;
-            document.getElementById("wind-speed").textContent = `Wind: ${wind} m/s`;
+            // Fetch and display the real location name
+            fetchLocationName(lat, lon);
         })
         .catch((error) => {
             console.error("Error fetching weather data:", error);
             document.getElementById("weather-desc").textContent = "Failed to fetch weather data.";
+        });
+}
+
+// Add this function:
+function fetchLocationName(lat, lon) {
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+        .then((res) => res.json())
+        .then((data) => {
+            let location = "Locație necunoscută";
+            if (data.address) {
+                if (data.address.city) {
+                    location = data.address.city;
+                } else if (data.address.town) {
+                    location = data.address.town;
+                } else if (data.address.village) {
+                    location = data.address.village;
+                } else if (data.address.county) {
+                    location = data.address.county;
+                }
+                if (data.address.country_code) {
+                    location += ", " + data.address.country_code.toUpperCase();
+                }
+            }
+            document.getElementById(
+                "weather-location"
+            ).innerHTML = `<i id="location-dot" class="fa-solid fa-location-dot"></i> ${location}`;
+        })
+        .catch(() => {
+            document.getElementById(
+                "weather-location"
+            ).innerHTML = `<i id="location-dot" class="fa-solid fa-location-dot"></i> Locație necunoscută`;
         });
 }
 
